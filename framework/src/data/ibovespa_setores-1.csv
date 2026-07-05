@@ -1,0 +1,79 @@
+ticker_yf,ticker_clean,longName,shortName,sector,industry
+ALOS3.SA,ALOS3,Allos S.A.,ALLOS       ON      NM,Real Estate,Real Estate Services
+ABEV3.SA,ABEV3,Ambev S.A.,AMBEV S/A   ON,Consumer Defensive,Beverages - Brewers
+ASAI3.SA,ASAI3,Sendas Distribuidora S.A.,ASSAI       ON      NM,Consumer Defensive,Grocery Stores
+AURE3.SA,AURE3,Auren Energia S.A.,AUREN       ON      NM,Utilities,Utilities - Renewable
+AXIA3.SA,AXIA3,AXIA Energia SA,AXIA ENERGIAON      N1,Utilities,Utilities - Renewable
+AZZA3.SA,AZZA3,Azzas 2154 S.A.,AZZAS 2154  ON  ATZ NM,Consumer Cyclical,Footwear & Accessories
+B3SA3.SA,B3SA3,"B3 S.A. - Brasil, Bolsa, Balcão",B3          ON      NM,Financial Services,Financial Data & Stock Exchanges
+BBSE3.SA,BBSE3,BB Seguridade Participações S.A.,BBSEGURIDADEON      NM,Financial Services,Insurance - Diversified
+BBDC3.SA,BBDC3,Banco Bradesco S.A.,BRADESCO    ON  EJ  N1,Financial Services,Banks - Regional
+BBDC4.SA,BBDC4,Banco Bradesco S.A.,BRADESCO    PN  EJ  N1,Financial Services,Banks - Regional
+BRAP4.SA,BRAP4,Bradespar S.A.,BRADESPAR   PN      N1,Financial Services,Asset Management
+BBAS3.SA,BBAS3,Banco do Brasil S.A.,BRASIL      ON  EJ  NM,Financial Services,Banks - Regional
+BRKM5.SA,BRKM5,Braskem S.A.,BRASKEM     PNA     N1,Basic Materials,Chemicals
+BRAV3.SA,BRAV3,Brava Energia S.A.,BRAVA       ON      NM,Energy,Oil & Gas E&P
+BPAC11.SA,BPAC11,Banco BTG Pactual S.A.,BTGP BANCO  UNT     N2,Financial Services,Capital Markets
+CXSE3.SA,CXSE3,Caixa Seguridade Participações S.A.,CAIXA SEGURION      NM,Financial Services,Insurance - Diversified
+CEAB3.SA,CEAB3,C&A Modas S.A.,CEA MODAS   ON      NM,Consumer Cyclical,Specialty Retail
+CMIG4.SA,CMIG4,Companhia Energética de Minas Gerais - CEMIG,CEMIG       PN      N1,Utilities,Utilities - Regulated Electric
+COGN3.SA,COGN3,Cogna Educação S.A.,COGNA ON    ON      NM,Consumer Defensive,Education & Training Services
+CSMG3.SA,CSMG3,Companhia de Saneamento de Minas Gerais,COPASA      ON      NM,Utilities,Utilities - Regulated Water
+CPLE3.SA,CPLE3,Companhia Paranaense de Energia - COPEL,COPEL       ON      NM,Utilities,Utilities - Regulated Electric
+CSAN3.SA,CSAN3,Cosan S.A.,COSAN       ON  ATZ NM,Energy,Oil & Gas Refining & Marketing
+CPFE3.SA,CPFE3,CPFL Energia S.A.,CPFL ENERGIAON      NM,Utilities,Utilities - Regulated Electric
+CMIN3.SA,CMIN3,CSN Mineração S.A.,CSNMINERACAOON      N2,Basic Materials,Steel
+CURY3.SA,CURY3,Cury Construtora e Incorporadora S.A.,CURY S/A    ON      NM,Real Estate,Real Estate - Development
+CYRE3.SA,CYRE3,Cyrela Brazil Realty S.A. Empreendimentos e Participações,CYRELA REALTON      NM,Consumer Cyclical,Residential Construction
+DIRR3.SA,DIRR3,Direcional Engenharia S.A.,DIRECIONAL  ON      NM,Real Estate,Real Estate - Development
+EMBJ3.SA,EMBJ3,Embraer S.A.,EMBRAER     ON      NM,Industrials,Aerospace & Defense
+ENGI11.SA,ENGI11,Energisa S.A.,ENERGISA    UNT     N2,Utilities,Utilities - Regulated Electric
+ENEV3.SA,ENEV3,Eneva S.A.,ENEVA       ON      NM,Utilities,Utilities - Diversified
+EGIE3.SA,EGIE3,Engie Brasil Energia S.A.,ENGIE BRASILON      NM,Utilities,Utilities - Renewable
+EQTL3.SA,EQTL3,Equatorial S.A.,EQUATORIAL  ON      NM,Utilities,Utilities - Regulated Electric
+FLRY3.SA,FLRY3,Fleury S.A.,FLEURY      ON      NM,Healthcare,Diagnostics & Research
+GGBR4.SA,GGBR4,Gerdau S.A.,GERDAU      PN      N1,Basic Materials,Steel
+GOAU4.SA,GOAU4,Metalurgica Gerdau S.A.,GERDAU MET  PN      N1,Basic Materials,Steel
+HAPV3.SA,HAPV3,Hapvida Participações e Investimentos S.A.,HAPVIDA     ON      NM,Financial Services,Insurance - Life
+HYPE3.SA,HYPE3,Hypera S.A.,HYPERA      ON      NM,Healthcare,Drug Manufacturers - Specialty & Generic
+IGTI11.SA,IGTI11,Iguatemi S.A.,IGUATEMI S.AUNT     N1,Real Estate,Real Estate Services
+ISAE4.SA,ISAE4,ISA Energía Brasil S.A.,ISA ENERGIA PN      N1,Utilities,Utilities - Independent Power Producers
+ITSA4.SA,ITSA4,Itaúsa S.A.,ITAUSA      PN  EJ  N1,Industrials,Conglomerates
+ITUB4.SA,ITUB4,Itaú Unibanco Holding S.A.,ITAUUNIBANCOPN  EJ  N1,Financial Services,Banks - Regional
+KLBN11.SA,KLBN11,Klabin S.A.,KLABIN S/A  UNT     N2,Basic Materials,Paper & Paper Products
+RENT3.SA,RENT3,Localiza Rent a Car S.A.,LOCALIZA    ON      NM,Industrials,Rental & Leasing Services
+LREN3.SA,LREN3,Lojas Renner S.A.,LOJAS RENNERON      NM,Consumer Cyclical,Department Stores
+MGLU3.SA,MGLU3,Magazine Luiza S.A.,MAGAZ LUIZA ON      NM,Consumer Cyclical,Specialty Retail
+POMO4.SA,POMO4,Marcopolo S.A.,MARCOPOLO   PN      N2,Industrials,Farm & Heavy Construction Machinery
+MBRF3.SA,MBRF3,MBRF Global Foods Company S.A.,MARFRIG     ON      NM,Consumer Defensive,Packaged Foods
+BEEF3.SA,BEEF3,Minerva S.A.,MINERVA     ON      NM,Consumer Defensive,Packaged Foods
+MOTV3.SA,MOTV3,Motiva Infraestrutura de Mobilidade S.A.,MOTIVA SA   ON      NM,Industrials,Infrastructure Operations
+MRVE3.SA,MRVE3,MRV Engenharia e Participações S.A.,MRV         ON      NM,Real Estate,Real Estate - Development
+MULT3.SA,MULT3,Multiplan Empreendimentos Imobiliários S.A.,MULTIPLAN   ON      N2,Real Estate,Real Estate Services
+NATU3.SA,NATU3,Natura Cosméticos S.A.,NATURA      ON      NM,Consumer Defensive,Household & Personal Products
+PETR3.SA,PETR3,Petróleo Brasileiro S.A. - Petrobras,PETROBRAS   ON  EJ  N2,Energy,Oil & Gas Integrated
+PETR4.SA,PETR4,Petróleo Brasileiro S.A. - Petrobras,PETROBRAS   PN  EX  N2,Energy,Oil & Gas Integrated
+RECV3.SA,RECV3,Petroreconcavo S.A.,PETRORECSA  ON      NM,Energy,Oil & Gas E&P
+PSSA3.SA,PSSA3,Porto Seguro S.A.,PORTO SEGUROON      NM,Financial Services,Insurance - Diversified
+PRIO3.SA,PRIO3,Prio S.A.,PRIO        ON      NM,Energy,Oil & Gas E&P
+RADL3.SA,RADL3,Raia Drogasil S.A.,RAIADROGASILON      NM,Healthcare,Pharmaceutical Retailers
+RDOR3.SA,RDOR3,Rede D'Or São Luiz S.A.,REDE D OR   ON      NM,Healthcare,Medical Care Facilities
+RAIL3.SA,RAIL3,Rumo S.A.,RUMO S.A.   ON      NM,Industrials,Railroads
+SBSP3.SA,SBSP3,Companhia de Saneamento Básico do Estado de São Paulo - SABESP,SABESP      ON      NM,Utilities,Utilities - Regulated Water
+SANB11.SA,SANB11,Banco Santander (Brasil) S.A.,SANTANDER BRUNT,Financial Services,Banks - Regional
+CSNA3.SA,CSNA3,Companhia Siderúrgica Nacional,SID NACIONALON,Basic Materials,Steel
+SLCE3.SA,SLCE3,SLC Agrícola S.A.,SLC AGRICOLAON      NM,Consumer Defensive,Farm Products
+SMFT3.SA,SMFT3,Smartfit Escola de Ginástica e Dança S.A.,SMART FIT   ON  EJ  NM,Consumer Cyclical,Leisure
+SUZB3.SA,SUZB3,Suzano S.A.,SUZANO S.A. ON      NM,Basic Materials,Paper & Paper Products
+TAEE11.SA,TAEE11,Transmissora Aliança de Energia Elétrica S.A.,TAESA       UNT     N2,Utilities,Utilities - Regulated Electric
+VIVT3.SA,VIVT3,Telefônica Brasil S.A.,TELEF BRASILON  EJ,Communication Services,Telecom Services
+TIMS3.SA,TIMS3,TIM S.A.,TIM         ON      NM,Communication Services,Telecom Services
+TOTS3.SA,TOTS3,TOTVS S.A.,TOTVS       ON      NM,Technology,Software - Application
+UGPA3.SA,UGPA3,Ultrapar Participações S.A.,ULTRAPAR    ON      NM,Energy,Oil & Gas Refining & Marketing
+USIM5.SA,USIM5,Usinas Siderúrgicas de Minas Gerais S.A.,USIMINAS    PNA     N1,Basic Materials,Steel
+VALE3.SA,VALE3,Vale S.A.,VALE        ON      NM,Basic Materials,Other Industrial Metals & Mining
+VAMO3.SA,VAMO3,"Vamos Locação de Caminhões, Máquinas e Equipamentos S.A.",VAMOS       ON      NM,Industrials,Rental & Leasing Services
+VBBR3.SA,VBBR3,Vibra Energia S.A.,VIBRA       ON      NM,Consumer Cyclical,Specialty Retail
+VIVA3.SA,VIVA3,Vivara Participações S.A.,VIVARA S.A. ON      NM,Consumer Cyclical,Luxury Goods
+WEGE3.SA,WEGE3,WEG S.A.,WEG         ON      NM,Industrials,Electrical Equipment & Parts
+YDUQ3.SA,YDUQ3,Yduqs Participações S.A.,YDUQS PART  ON      NM,Consumer Defensive,Education & Training Services

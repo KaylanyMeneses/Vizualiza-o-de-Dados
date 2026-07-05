@@ -1,0 +1,12 @@
+sector,beta,pvalue,r2,n_obs,significant,industry,beta_abs,effect_direction,sig_label
+Consumer Cyclical,-5.1291,0.0255,0.1346,37,True,Specialty Retail,5.1291,mais_sensivel_queda,significativo
+Basic Materials,-4.6168,0.0264,0.133,37,True,Steel,4.6168,mais_sensivel_queda,significativo
+Technology,-3.3849,0.1599,0.0556,37,False,Software - Application,3.3849,mais_sensivel_queda,nao_significativo
+Real Estate,-3.1812,0.1232,0.0665,37,False,Real Estate - Development,3.1812,mais_sensivel_queda,nao_significativo
+Financial Services,-2.8994,0.074,0.0883,37,False,Banks - Regional,2.8994,mais_sensivel_queda,nao_significativo
+Industrials,-2.8241,0.0687,0.0916,37,False,Rental & Leasing Services,2.8241,mais_sensivel_queda,nao_significativo
+Energy,-2.699,0.2198,0.0427,37,False,Oil & Gas E&P,2.699,mais_sensivel_queda,nao_significativo
+Healthcare,-1.8499,0.2761,0.0338,37,False,Diagnostics & Research,1.8499,mais_sensivel_queda,nao_significativo
+Utilities,-1.7589,0.1381,0.0617,37,False,Utilities - Regulated Electric,1.7589,mais_sensivel_queda,nao_significativo
+Communication Services,-0.7629,0.5628,0.0097,37,False,Telecom Services,0.7629,mais_sensivel_queda,nao_significativo
+Consumer Defensive,0.2603,0.8724,0.0007,37,False,Education & Training Services,0.2603,mais_sensivel_alta,nao_significativo
