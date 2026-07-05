@@ -1,59 +1,112 @@
-# .\vizu_de_dados
+# Ibovespa: Correlação e Estrutura de Mercado
 
-This is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run:
+Uma análise quantitativa e visual da evolução da correlação entre ações do Ibovespa entre 2018 e 2025, utilizando teoria dos grafos, detecção de comunidades e análise de sensibilidade à taxa de juros.
 
-```
+## Visão Geral
+
+Este projeto investiga como eventos globais e decisões de política monetária alteram a estrutura de correlações entre ações brasileiras. Através de análises baseadas em redes complexas, identifica períodos de sincronização de mercado, reorganização setorial pós-crise e sensibilidade diferenciada de setores à Selic.
+
+## Questão Central
+
+Como eventos globais e nacionais alteram a estrutura de correlações entre ações brasileiras?
+
+## Hipóteses Investigadas
+
+**H1 - Crises**: Em períodos de pânico como a COVID-19, as correlações entre ações disparam, fazendo o mercado colapsar em bloco.
+
+**H2 - Recuperação**: Após crises, setores se reorganizam e divergem novamente, restaurando a estrutura de rede. Comunidades detectadas tendem a coincidir mais com a classificação setorial oficial.
+
+**H3 - Selic**: Bancos e imobiliárias apresentam maior sensibilidade à taxa de juros do que commodities e exportadoras, que são protegidas pela receita em dólar.
+
+**H4 - Comunidades**: Algoritmos de detecção de comunidades revelam agrupamentos que refletem—e às vezes transgridem—a classificação setorial oficial.
+
+## Dados e Metodologia
+
+### Fonte de Dados
+
+- Composição: Lista oficial de ativos do Ibovespa via API B3
+- Histórico: Série OHLCV (2018-2025) do Yahoo Finance (~80 ações, ~1800 dias)
+- Selic: Meta da taxa básica de juros via SGS/Banco Central do Brasil
+- Metadados: Setor e indústria de cada ação via Yahoo Finance
+
+### Pipeline de Processamento
+
+1. Validação de tickers contra Yahoo Finance
+2. Download de histórico ajustado por splits e dividendos
+3. Cálculo de derivados: retorno diário, log-retorno, volatilidade 20d anualizada
+4. Matriz de correlação de Pearson por período trimestral
+5. Construção de grafos com limiar de correlação |r| = 0.5
+6. Detecção de comunidades via algoritmo de Louvain
+7. Regressão OLS de retornos contra variações da Selic
+8. Cálculo de métricas de rede: densidade, modularidade, NMI vs. setores
+
+### Métricas Principais
+
+- Correlação Média Absoluta: Valor absoluto médio de todas as correlações da rede
+- Densidade da Rede: Proporção de arestas existentes sobre o total possível
+- Modularidade (Louvain Q): Qualidade da partição em comunidades
+- NMI (Normalized Mutual Information): Concordância entre comunidades detectadas e setores B3
+- Beta Selic: Sensibilidade do retorno setorial a variações da Selic
+
+## Estrutura do Projeto
+
+`
+meu-site/
++-- src/
+¦   +-- index.md              # Página de análise principal
+¦   +-- metodologia.md        # Documentação técnica e metodológica
+¦   +-- components/
+¦   ¦   +-- timeline.js       # Componente de visualização
+¦   +-- data/
+¦       +-- *_network_metrics_quarterly.csv
+¦       +-- *_selic_beta*.csv
+¦       +-- *_correlation_graph_quarterly.json
+¦       +-- [dados brutos]
++-- observablehq.config.js    # Configuração do Observable Framework
++-- package.json              # Dependências
++-- README.md
+`
+
+## Tecnologias
+
+- Framework: Observable (análise e visualização interativa)
+- Visualização: D3.js (grafos, séries temporais, heatmaps)
+- Dados: Python (processamento e cálculo de métricas)
+- Controle de Versão: Git/GitHub
+
+## Como Executar Localmente
+
+`ash
+# Clonar repositório
+git clone https://github.com/KaylanyMeneses/Vizualiza-o-de-Dados.git
+cd Vizualiza-o-de-Dados/meu-site
+
+# Instalar dependências
 npm install
-```
 
-Then, to start the local preview server, run:
-
-```
+# Iniciar servidor local
 npm run dev
-```
+`
 
-Then visit <http://localhost:3000> to preview your app.
+Acesse http://localhost:3000 no navegador.
 
-For more, see <https://observablehq.com/framework/getting-started>.
+## Páginas
 
-## Project structure
+- Análise: Visualizações interativas das quatro hipóteses, com grafos, séries temporais, rankings de sensibilidade e heatmaps.
+- Metodologia: Documentação técnica detalhada do pipeline de dados, algoritmos utilizados, métricas calculadas e decisões de design de cada visualização.
 
-A typical Framework project looks like this:
+## Principais Achados
 
-```ini
-.
-â”œâ”€ src
-â”‚  â”œâ”€ components
-â”‚  â”‚  â””â”€ timeline.js           # an importable module
-â”‚  â”œâ”€ data
-â”‚  â”‚  â”œâ”€ launches.csv.js       # a data loader
-â”‚  â”‚  â””â”€ events.json           # a static data file
-â”‚  â”œâ”€ example-dashboard.md     # a page
-â”‚  â”œâ”€ example-report.md        # another page
-â”‚  â””â”€ index.md                 # the home page
-â”œâ”€ .gitignore
-â”œâ”€ observablehq.config.js      # the app config file
-â”œâ”€ package.json
-â””â”€ README.md
-```
+- A COVID-19 (Q1 2020) causou sincronização extrema do mercado, com correlação média atingindo máximos históricos
+- Após a crise, setores se reorganizaram gradualmente, com comunidades detectadas recuperando alinhamento com classificação B3
+- Bancos apresentam beta Selic positivo (se beneficiam de alta de juros), enquanto varejistas e imobiliárias sofrem
+- Commodities exportadoras mostram menor sensibilidade à Selic devido a receita em dólar
+- Detecção de comunidades revela agrupamentos transversais que não coincidem perfeitamente com setores oficiais
 
-**`src`** - This is the â€œsource rootâ€ â€” where your source files live. Pages go here. Each page is a Markdown file. Observable Framework uses [file-based routing](https://observablehq.com/framework/project-structure#routing), which means that the name of the file controls where the page is served. You can create as many pages as you like. Use folders to organize your pages.
+## Autor
 
-**`src/index.md`** - This is the home page for your app. You can have as many additional pages as youâ€™d like, but you should always have a home page, too.
+Desenvolvido por Kaylany Meneses
 
-**`src/data`** - You can put [data loaders](https://observablehq.com/framework/data-loaders) or static data files anywhere in your source root, but we recommend putting them here.
+## Licença
 
-**`src/components`** - You can put shared [JavaScript modules](https://observablehq.com/framework/imports) anywhere in your source root, but we recommend putting them here. This helps you pull code out of Markdown files and into JavaScript modules, making it easier to reuse code across pages, write tests and run linters, and even share code with vanilla web applications.
-
-**`observablehq.config.js`** - This is the [app configuration](https://observablehq.com/framework/config) file, such as the pages and sections in the sidebar navigation, and the appâ€™s title.
-
-## Command reference
-
-| Command           | Description                                              |
-| ----------------- | -------------------------------------------------------- |
-| `npm install`            | Install or reinstall dependencies                        |
-| `npm run dev`        | Start local preview server                               |
-| `npm run build`      | Build your static site, generating `./dist`              |
-| `npm run deploy`     | Deploy your app to Observable                            |
-| `npm run clean`      | Clear the local data loader cache                        |
-| `npm run observable` | Run commands like `observable help`                      |
+Este projeto está disponível sob licença aberta. Consulte o arquivo LICENSE para mais detalhes.
