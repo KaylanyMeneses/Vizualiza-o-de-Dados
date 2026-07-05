@@ -1,0 +1,408 @@
+copom_date,delta_selic,sector,median_return_30d,copom_direction,industry
+2018-02-08,-0.25,Basic Materials,6.328669596706938,queda,Steel
+2018-02-08,-0.25,Communication Services,4.423398287044556,queda,Telecom Services
+2018-02-08,-0.25,Consumer Cyclical,6.4688054684928,queda,Specialty Retail
+2018-02-08,-0.25,Consumer Defensive,-3.1833441293105835,queda,Education & Training Services
+2018-02-08,-0.25,Energy,3.961298154117321,queda,Oil & Gas E&P
+2018-02-08,-0.25,Financial Services,6.952128544222269,queda,Banks - Regional
+2018-02-08,-0.25,Healthcare,3.2078417028681416,queda,Diagnostics & Research
+2018-02-08,-0.25,Industrials,4.199067912692844,queda,Rental & Leasing Services
+2018-02-08,-0.25,Real Estate,2.485765942810425,queda,Real Estate - Development
+2018-02-08,-0.25,Technology,-0.636739317400048,queda,Software - Application
+2018-02-08,-0.25,Utilities,10.731192605712502,queda,Utilities - Regulated Electric
+2018-03-22,-0.25,Basic Materials,11.983123477183222,queda,Steel
+2018-03-22,-0.25,Communication Services,10.841694892016896,queda,Telecom Services
+2018-03-22,-0.25,Consumer Cyclical,-2.025858551070203,queda,Specialty Retail
+2018-03-22,-0.25,Consumer Defensive,0.9937735495079814,queda,Education & Training Services
+2018-03-22,-0.25,Energy,-4.145194069201263,queda,Oil & Gas E&P
+2018-03-22,-0.25,Financial Services,-0.9831710590791243,queda,Banks - Regional
+2018-03-22,-0.25,Healthcare,-4.403742504904551,queda,Diagnostics & Research
+2018-03-22,-0.25,Industrials,5.561914300675541,queda,Rental & Leasing Services
+2018-03-22,-0.25,Real Estate,-3.459685631021464,queda,Real Estate - Development
+2018-03-22,-0.25,Technology,10.180391409902345,queda,Software - Application
+2018-03-22,-0.25,Utilities,-2.17028212127231,queda,Utilities - Regulated Electric
+2019-08-01,-0.5,Basic Materials,-4.688457262770901,queda,Steel
+2019-08-01,-0.5,Communication Services,-0.12453952400943713,queda,Telecom Services
+2019-08-01,-0.5,Consumer Cyclical,1.7102932848334529,queda,Specialty Retail
+2019-08-01,-0.5,Consumer Defensive,-4.3598342274157815,queda,Education & Training Services
+2019-08-01,-0.5,Energy,-3.09054564827691,queda,Oil & Gas E&P
+2019-08-01,-0.5,Financial Services,-0.5993567810269385,queda,Banks - Regional
+2019-08-01,-0.5,Healthcare,2.45224388236176,queda,Diagnostics & Research
+2019-08-01,-0.5,Industrials,0.6833860215125442,queda,Rental & Leasing Services
+2019-08-01,-0.5,Real Estate,-1.7693190878254326,queda,Real Estate - Development
+2019-08-01,-0.5,Technology,10.341030228683756,queda,Software - Application
+2019-08-01,-0.5,Utilities,1.4250155335430614,queda,Utilities - Regulated Electric
+2019-09-19,-0.5,Basic Materials,-4.34591162776346,queda,Steel
+2019-09-19,-0.5,Communication Services,1.1382147161137668,queda,Telecom Services
+2019-09-19,-0.5,Consumer Cyclical,10.591198415512615,queda,Specialty Retail
+2019-09-19,-0.5,Consumer Defensive,-3.3369748397650834,queda,Education & Training Services
+2019-09-19,-0.5,Energy,2.2222382011642727,queda,Oil & Gas E&P
+2019-09-19,-0.5,Financial Services,1.2702288466984513,queda,Banks - Regional
+2019-09-19,-0.5,Healthcare,3.4523432735052317,queda,Diagnostics & Research
+2019-09-19,-0.5,Industrials,-1.2839267240192576,queda,Rental & Leasing Services
+2019-09-19,-0.5,Real Estate,1.3819040684043826,queda,Real Estate - Development
+2019-09-19,-0.5,Technology,0.5127986005742491,queda,Software - Application
+2019-09-19,-0.5,Utilities,-2.8948114117809673,queda,Utilities - Regulated Electric
+2019-10-31,-0.5,Basic Materials,10.273855533629872,queda,Steel
+2019-10-31,-0.5,Communication Services,11.379579425367192,queda,Telecom Services
+2019-10-31,-0.5,Consumer Cyclical,-0.7098120187188806,queda,Specialty Retail
+2019-10-31,-0.5,Consumer Defensive,4.154636580112214,queda,Education & Training Services
+2019-10-31,-0.5,Energy,5.52252164758622,queda,Oil & Gas E&P
+2019-10-31,-0.5,Financial Services,-1.850218057350561,queda,Banks - Regional
+2019-10-31,-0.5,Healthcare,0.017702495609706048,queda,Diagnostics & Research
+2019-10-31,-0.5,Industrials,2.5044797841890842,queda,Rental & Leasing Services
+2019-10-31,-0.5,Real Estate,-0.9845271367735664,queda,Real Estate - Development
+2019-10-31,-0.5,Technology,2.195537147971871,queda,Software - Application
+2019-10-31,-0.5,Utilities,-0.12143707837133921,queda,Utilities - Regulated Electric
+2019-12-12,-0.5,Basic Materials,8.417853404923115,queda,Steel
+2019-12-12,-0.5,Communication Services,9.333847182071075,queda,Telecom Services
+2019-12-12,-0.5,Consumer Cyclical,2.8979224577401874,queda,Specialty Retail
+2019-12-12,-0.5,Consumer Defensive,-0.7332797025272619,queda,Education & Training Services
+2019-12-12,-0.5,Energy,5.411241472936146,queda,Oil & Gas E&P
+2019-12-12,-0.5,Financial Services,2.7405982440182886,queda,Banks - Regional
+2019-12-12,-0.5,Healthcare,8.628772771000559,queda,Diagnostics & Research
+2019-12-12,-0.5,Industrials,3.5917737369490554,queda,Rental & Leasing Services
+2019-12-12,-0.5,Real Estate,8.786774744134663,queda,Real Estate - Development
+2019-12-12,-0.5,Technology,0.7500209532972146,queda,Software - Application
+2019-12-12,-0.5,Utilities,7.646788081493949,queda,Utilities - Regulated Electric
+2020-02-06,-0.25,Basic Materials,-16.283720315347885,queda,Steel
+2020-02-06,-0.25,Communication Services,-1.6300877954481208,queda,Telecom Services
+2020-02-06,-0.25,Consumer Cyclical,-14.597785784727535,queda,Specialty Retail
+2020-02-06,-0.25,Consumer Defensive,-8.174862739510857,queda,Education & Training Services
+2020-02-06,-0.25,Energy,-23.52194511526432,queda,Oil & Gas E&P
+2020-02-06,-0.25,Financial Services,-13.950444313965004,queda,Banks - Regional
+2020-02-06,-0.25,Healthcare,2.1991668432662648,queda,Diagnostics & Research
+2020-02-06,-0.25,Industrials,-13.431209209960738,queda,Rental & Leasing Services
+2020-02-06,-0.25,Real Estate,-12.500692719774015,queda,Real Estate - Development
+2020-02-06,-0.25,Technology,-13.941171331793045,queda,Software - Application
+2020-02-06,-0.25,Utilities,-3.9196674305667925,queda,Utilities - Regulated Electric
+2020-03-19,-0.5,Basic Materials,27.578020688387994,queda,Steel
+2020-03-19,-0.5,Communication Services,-5.226197411327316,queda,Telecom Services
+2020-03-19,-0.5,Consumer Cyclical,20.034052582062813,queda,Specialty Retail
+2020-03-19,-0.5,Consumer Defensive,19.049303404647045,queda,Education & Training Services
+2020-03-19,-0.5,Energy,34.41671945859708,queda,Oil & Gas E&P
+2020-03-19,-0.5,Financial Services,20.24390562304095,queda,Banks - Regional
+2020-03-19,-0.5,Healthcare,8.218645783479728,queda,Diagnostics & Research
+2020-03-19,-0.5,Industrials,16.26132185280984,queda,Rental & Leasing Services
+2020-03-19,-0.5,Real Estate,8.57114695547374,queda,Real Estate - Development
+2020-03-19,-0.5,Technology,34.98743020704147,queda,Software - Application
+2020-03-19,-0.5,Utilities,13.130157385202757,queda,Utilities - Regulated Electric
+2020-05-07,-0.75,Basic Materials,18.980799217340724,queda,Steel
+2020-05-07,-0.75,Communication Services,6.233138839084951,queda,Telecom Services
+2020-05-07,-0.75,Consumer Cyclical,26.221974042632247,queda,Specialty Retail
+2020-05-07,-0.75,Consumer Defensive,6.196239233298178,queda,Education & Training Services
+2020-05-07,-0.75,Energy,19.58875095776511,queda,Oil & Gas E&P
+2020-05-07,-0.75,Financial Services,24.561352463118304,queda,Banks - Regional
+2020-05-07,-0.75,Healthcare,22.775838396182422,queda,Diagnostics & Research
+2020-05-07,-0.75,Industrials,18.52430639659428,queda,Rental & Leasing Services
+2020-05-07,-0.75,Real Estate,27.464711018419898,queda,Real Estate - Development
+2020-05-07,-0.75,Technology,12.216238186342675,queda,Software - Application
+2020-05-07,-0.75,Utilities,15.096147181276908,queda,Utilities - Regulated Electric
+2020-06-18,-0.75,Basic Materials,5.860788640240333,queda,Steel
+2020-06-18,-0.75,Communication Services,4.77678510793419,queda,Telecom Services
+2020-06-18,-0.75,Consumer Cyclical,6.88567738007404,queda,Specialty Retail
+2020-06-18,-0.75,Consumer Defensive,3.2821634870586425,queda,Education & Training Services
+2020-06-18,-0.75,Energy,6.149007137821272,queda,Oil & Gas E&P
+2020-06-18,-0.75,Financial Services,1.5920980678712837,queda,Banks - Regional
+2020-06-18,-0.75,Healthcare,-1.0980594568672286,queda,Diagnostics & Research
+2020-06-18,-0.75,Industrials,-1.3447913491852148,queda,Rental & Leasing Services
+2020-06-18,-0.75,Real Estate,10.252546676999952,queda,Real Estate - Development
+2020-06-18,-0.75,Technology,13.811419256103786,queda,Software - Application
+2020-06-18,-0.75,Utilities,0.6473890364662005,queda,Utilities - Regulated Electric
+2020-08-06,-0.25,Basic Materials,10.192230120037081,queda,Steel
+2020-08-06,-0.25,Communication Services,-3.9011666628385013,queda,Telecom Services
+2020-08-06,-0.25,Consumer Cyclical,7.1263189032974905,queda,Specialty Retail
+2020-08-06,-0.25,Consumer Defensive,-4.11644604914469,queda,Education & Training Services
+2020-08-06,-0.25,Energy,0.364551312859418,queda,Oil & Gas E&P
+2020-08-06,-0.25,Financial Services,0.2359866836085578,queda,Banks - Regional
+2020-08-06,-0.25,Healthcare,-5.60454365120715,queda,Diagnostics & Research
+2020-08-06,-0.25,Industrials,-1.199994185761688,queda,Rental & Leasing Services
+2020-08-06,-0.25,Real Estate,-2.877290943547006,queda,Real Estate - Development
+2020-08-06,-0.25,Technology,-3.812669712702288,queda,Software - Application
+2020-08-06,-0.25,Utilities,-3.7484784118230197,queda,Utilities - Regulated Electric
+2021-03-18,0.75,Basic Materials,14.654983889785523,alta,Steel
+2021-03-18,0.75,Communication Services,-4.951861396838864,alta,Telecom Services
+2021-03-18,0.75,Consumer Cyclical,9.268170981429469,alta,Specialty Retail
+2021-03-18,0.75,Consumer Defensive,16.223664598991938,alta,Education & Training Services
+2021-03-18,0.75,Energy,-0.7913054759356275,alta,Oil & Gas E&P
+2021-03-18,0.75,Financial Services,-0.6866357542445356,alta,Banks - Regional
+2021-03-18,0.75,Healthcare,8.074619827596175,alta,Diagnostics & Research
+2021-03-18,0.75,Industrials,4.146784757353473,alta,Rental & Leasing Services
+2021-03-18,0.75,Real Estate,3.903179458070527,alta,Real Estate - Development
+2021-03-18,0.75,Technology,7.748165625624637,alta,Software - Application
+2021-03-18,0.75,Utilities,2.0237443026638213,alta,Utilities - Regulated Electric
+2021-05-06,0.75,Basic Materials,-9.707064212934602,alta,Steel
+2021-05-06,0.75,Communication Services,2.5050326641120835,alta,Telecom Services
+2021-05-06,0.75,Consumer Cyclical,10.422399285582596,alta,Specialty Retail
+2021-05-06,0.75,Consumer Defensive,0.2970209183133621,alta,Education & Training Services
+2021-05-06,0.75,Energy,6.715266904087147,alta,Oil & Gas E&P
+2021-05-06,0.75,Financial Services,8.049320436689255,alta,Banks - Regional
+2021-05-06,0.75,Healthcare,3.5539147950051198,alta,Diagnostics & Research
+2021-05-06,0.75,Industrials,3.917975998579415,alta,Rental & Leasing Services
+2021-05-06,0.75,Real Estate,10.83804007582836,alta,Real Estate - Development
+2021-05-06,0.75,Technology,2.6780345226627533,alta,Software - Application
+2021-05-06,0.75,Utilities,5.8798541923049115,alta,Utilities - Regulated Electric
+2021-06-17,0.75,Basic Materials,1.3067111020012678,alta,Steel
+2021-06-17,0.75,Communication Services,-7.7399561348576835,alta,Telecom Services
+2021-06-17,0.75,Consumer Cyclical,-2.949728186256695,alta,Specialty Retail
+2021-06-17,0.75,Consumer Defensive,-2.5933927123702794,alta,Education & Training Services
+2021-06-17,0.75,Energy,-0.7894712426221084,alta,Oil & Gas E&P
+2021-06-17,0.75,Financial Services,-7.7605356117174225,alta,Banks - Regional
+2021-06-17,0.75,Healthcare,-0.3494335267121951,alta,Diagnostics & Research
+2021-06-17,0.75,Industrials,0.8278862220850058,alta,Rental & Leasing Services
+2021-06-17,0.75,Real Estate,-6.172334704103422,alta,Real Estate - Development
+2021-06-17,0.75,Technology,4.612009091701275,alta,Software - Application
+2021-06-17,0.75,Utilities,-4.6912160811016905,alta,Utilities - Regulated Electric
+2021-08-05,1.0,Basic Materials,-11.109224916855743,alta,Steel
+2021-08-05,1.0,Communication Services,2.2397792341753875,alta,Telecom Services
+2021-08-05,1.0,Consumer Cyclical,-8.422258868032305,alta,Specialty Retail
+2021-08-05,1.0,Consumer Defensive,-3.1579057265874955,alta,Education & Training Services
+2021-08-05,1.0,Energy,-2.5897747024799966,alta,Oil & Gas E&P
+2021-08-05,1.0,Financial Services,-6.854343201791535,alta,Banks - Regional
+2021-08-05,1.0,Healthcare,-0.8213554525549283,alta,Diagnostics & Research
+2021-08-05,1.0,Industrials,-3.7893278956976086,alta,Rental & Leasing Services
+2021-08-05,1.0,Real Estate,-13.060333887484221,alta,Real Estate - Development
+2021-08-05,1.0,Technology,5.126158767505351,alta,Software - Application
+2021-08-05,1.0,Utilities,1.4821506064027212,alta,Utilities - Regulated Electric
+2021-09-23,1.0,Basic Materials,-2.0723327874588193,alta,Steel
+2021-09-23,1.0,Communication Services,0.8148605061690184,alta,Telecom Services
+2021-09-23,1.0,Consumer Cyclical,-17.9951853560491,alta,Specialty Retail
+2021-09-23,1.0,Consumer Defensive,-8.554571459122972,alta,Education & Training Services
+2021-09-23,1.0,Energy,-5.53700689689387,alta,Oil & Gas E&P
+2021-09-23,1.0,Financial Services,-2.4113267763842874,alta,Banks - Regional
+2021-09-23,1.0,Healthcare,-14.333328550872698,alta,Diagnostics & Research
+2021-09-23,1.0,Industrials,-5.294714766467668,alta,Rental & Leasing Services
+2021-09-23,1.0,Real Estate,-17.0939982232148,alta,Real Estate - Development
+2021-09-23,1.0,Technology,-16.105243905995724,alta,Software - Application
+2021-09-23,1.0,Utilities,-6.493486610782617,alta,Utilities - Regulated Electric
+2021-10-28,1.5,Basic Materials,-1.566243835514991,alta,Steel
+2021-10-28,1.5,Communication Services,17.652856742466827,alta,Telecom Services
+2021-10-28,1.5,Consumer Cyclical,-0.39876456973775287,alta,Specialty Retail
+2021-10-28,1.5,Consumer Defensive,-6.6085355128604695,alta,Education & Training Services
+2021-10-28,1.5,Energy,4.8618740649917,alta,Oil & Gas E&P
+2021-10-28,1.5,Financial Services,0.6843200133387461,alta,Banks - Regional
+2021-10-28,1.5,Healthcare,-3.194906077518067,alta,Diagnostics & Research
+2021-10-28,1.5,Industrials,0.9166980977283079,alta,Rental & Leasing Services
+2021-10-28,1.5,Real Estate,8.967656727970219,alta,Real Estate - Development
+2021-10-28,1.5,Technology,-4.3650633384135995,alta,Software - Application
+2021-10-28,1.5,Utilities,-0.47957468683542115,alta,Utilities - Regulated Electric
+2021-12-09,1.5,Basic Materials,-1.5222466450717342,alta,Steel
+2021-12-09,1.5,Communication Services,-3.3325902101759617,alta,Telecom Services
+2021-12-09,1.5,Consumer Cyclical,-15.297142307083094,alta,Specialty Retail
+2021-12-09,1.5,Consumer Defensive,-5.347596358801687,alta,Education & Training Services
+2021-12-09,1.5,Energy,-4.251208641103455,alta,Oil & Gas E&P
+2021-12-09,1.5,Financial Services,-7.010978880510798,alta,Banks - Regional
+2021-12-09,1.5,Healthcare,-11.520941129334673,alta,Diagnostics & Research
+2021-12-09,1.5,Industrials,-10.953337189492762,alta,Rental & Leasing Services
+2021-12-09,1.5,Real Estate,-16.6005565792821,alta,Real Estate - Development
+2021-12-09,1.5,Technology,-22.00512334543555,alta,Software - Application
+2021-12-09,1.5,Utilities,-8.353729550809208,alta,Utilities - Regulated Electric
+2022-02-03,1.5,Basic Materials,-3.0024463235976517,alta,Steel
+2022-02-03,1.5,Communication Services,-2.398784916212354,alta,Telecom Services
+2022-02-03,1.5,Consumer Cyclical,-3.1349158911442077,alta,Specialty Retail
+2022-02-03,1.5,Consumer Defensive,-1.4728761339652063,alta,Education & Training Services
+2022-02-03,1.5,Energy,3.0416182678571158,alta,Oil & Gas E&P
+2022-02-03,1.5,Financial Services,-0.39496734499846475,alta,Banks - Regional
+2022-02-03,1.5,Healthcare,6.51299044008562,alta,Diagnostics & Research
+2022-02-03,1.5,Industrials,-7.731075805700744,alta,Rental & Leasing Services
+2022-02-03,1.5,Real Estate,-4.368461897721887,alta,Real Estate - Development
+2022-02-03,1.5,Technology,14.084996384240078,alta,Software - Application
+2022-02-03,1.5,Utilities,3.8692735047123006,alta,Utilities - Regulated Electric
+2022-03-17,1.0,Basic Materials,-5.211719285411154,alta,Steel
+2022-03-17,1.0,Communication Services,2.2412087297621897,alta,Telecom Services
+2022-03-17,1.0,Consumer Cyclical,-0.04999154540679118,alta,Specialty Retail
+2022-03-17,1.0,Consumer Defensive,3.1579045780179893,alta,Education & Training Services
+2022-03-17,1.0,Energy,12.173251354316017,alta,Oil & Gas E&P
+2022-03-17,1.0,Financial Services,0.7185099497360459,alta,Banks - Regional
+2022-03-17,1.0,Healthcare,-1.9789918070716284,alta,Diagnostics & Research
+2022-03-17,1.0,Industrials,2.234720854693961,alta,Rental & Leasing Services
+2022-03-17,1.0,Real Estate,6.267874232829906,alta,Real Estate - Development
+2022-03-17,1.0,Technology,3.9192282796348232,alta,Software - Application
+2022-03-17,1.0,Utilities,4.651146927388017,alta,Utilities - Regulated Electric
+2022-05-05,1.0,Basic Materials,8.867157527786883,alta,Steel
+2022-05-05,1.0,Communication Services,1.628531591457466,alta,Telecom Services
+2022-05-05,1.0,Consumer Cyclical,-3.937933982313341,alta,Specialty Retail
+2022-05-05,1.0,Consumer Defensive,5.173601621009127,alta,Education & Training Services
+2022-05-05,1.0,Energy,6.900571792012045,alta,Oil & Gas E&P
+2022-05-05,1.0,Financial Services,7.768879041351228,alta,Banks - Regional
+2022-05-05,1.0,Healthcare,11.889870622092047,alta,Diagnostics & Research
+2022-05-05,1.0,Industrials,5.3691348164946255,alta,Rental & Leasing Services
+2022-05-05,1.0,Real Estate,0.6762221650426503,alta,Real Estate - Development
+2022-05-05,1.0,Technology,6.348626026519577,alta,Software - Application
+2022-05-05,1.0,Utilities,4.64852397435227,alta,Utilities - Regulated Electric
+2022-06-17,0.5,Basic Materials,-8.415845890118934,alta,Steel
+2022-06-17,0.5,Communication Services,4.41134480880252,alta,Telecom Services
+2022-06-17,0.5,Consumer Cyclical,0.49232379689705397,alta,Specialty Retail
+2022-06-17,0.5,Consumer Defensive,4.296867539350302,alta,Education & Training Services
+2022-06-17,0.5,Energy,-5.521468895560943,alta,Oil & Gas E&P
+2022-06-17,0.5,Financial Services,-6.476248027398457,alta,Banks - Regional
+2022-06-17,0.5,Healthcare,9.970040351218978,alta,Diagnostics & Research
+2022-06-17,0.5,Industrials,-2.2882229480217067,alta,Rental & Leasing Services
+2022-06-17,0.5,Real Estate,12.897372688898823,alta,Real Estate - Development
+2022-06-17,0.5,Technology,0.2586140644892376,alta,Software - Application
+2022-06-17,0.5,Utilities,-1.3915600414832197,alta,Utilities - Regulated Electric
+2022-08-04,0.5,Basic Materials,-5.306138082125134,alta,Steel
+2022-08-04,0.5,Communication Services,-7.06065391492462,alta,Telecom Services
+2022-08-04,0.5,Consumer Cyclical,9.734257515057067,alta,Specialty Retail
+2022-08-04,0.5,Consumer Defensive,6.02739067149376,alta,Education & Training Services
+2022-08-04,0.5,Energy,15.288742424963075,alta,Oil & Gas E&P
+2022-08-04,0.5,Financial Services,5.100683487298041,alta,Banks - Regional
+2022-08-04,0.5,Healthcare,1.9695753130451021,alta,Diagnostics & Research
+2022-08-04,0.5,Industrials,2.6859816587299634,alta,Rental & Leasing Services
+2022-08-04,0.5,Real Estate,1.8333060645246313,alta,Real Estate - Development
+2022-08-04,0.5,Technology,7.455472439618327,alta,Software - Application
+2022-08-04,0.5,Utilities,1.9820971867007486,alta,Utilities - Regulated Electric
+2023-08-03,-0.5,Basic Materials,-2.2567055449099205,queda,Steel
+2023-08-03,-0.5,Communication Services,-0.8899036741901567,queda,Telecom Services
+2023-08-03,-0.5,Consumer Cyclical,-8.618029529484472,queda,Specialty Retail
+2023-08-03,-0.5,Consumer Defensive,-9.609608760929078,queda,Education & Training Services
+2023-08-03,-0.5,Energy,-1.3033450298278293,queda,Oil & Gas E&P
+2023-08-03,-0.5,Financial Services,-1.2445152811542681,queda,Banks - Regional
+2023-08-03,-0.5,Healthcare,-9.166645813983315,queda,Diagnostics & Research
+2023-08-03,-0.5,Industrials,-2.6575471766773386,queda,Rental & Leasing Services
+2023-08-03,-0.5,Real Estate,-5.437724778685182,queda,Real Estate - Development
+2023-08-03,-0.5,Technology,-5.151830075280439,queda,Software - Application
+2023-08-03,-0.5,Utilities,-0.8349173525598275,queda,Utilities - Regulated Electric
+2023-09-21,-0.5,Basic Materials,-9.711680225446639,queda,Steel
+2023-09-21,-0.5,Communication Services,2.0605170279421436,queda,Telecom Services
+2023-09-21,-0.5,Consumer Cyclical,-5.66343140570364,queda,Specialty Retail
+2023-09-21,-0.5,Consumer Defensive,-8.13069032179622,queda,Education & Training Services
+2023-09-21,-0.5,Energy,6.287428901433545,queda,Oil & Gas E&P
+2023-09-21,-0.5,Financial Services,-0.6433980861082822,queda,Banks - Regional
+2023-09-21,-0.5,Healthcare,-6.552161696909336,queda,Diagnostics & Research
+2023-09-21,-0.5,Industrials,-7.186107947012632,queda,Rental & Leasing Services
+2023-09-21,-0.5,Real Estate,-6.789443022044123,queda,Real Estate - Development
+2023-09-21,-0.5,Technology,-2.6116538982851156,queda,Software - Application
+2023-09-21,-0.5,Utilities,-6.063193851409054,queda,Utilities - Regulated Electric
+2023-11-03,-0.5,Basic Materials,3.4831734564501504,queda,Steel
+2023-11-03,-0.5,Communication Services,9.530437746478071,queda,Telecom Services
+2023-11-03,-0.5,Consumer Cyclical,20.13722300722189,queda,Specialty Retail
+2023-11-03,-0.5,Consumer Defensive,9.872342682529212,queda,Education & Training Services
+2023-11-03,-0.5,Energy,2.7518371036767464,queda,Oil & Gas E&P
+2023-11-03,-0.5,Financial Services,9.565432361313409,queda,Banks - Regional
+2023-11-03,-0.5,Healthcare,9.561518138639823,queda,Diagnostics & Research
+2023-11-03,-0.5,Industrials,8.974766231312369,queda,Rental & Leasing Services
+2023-11-03,-0.5,Real Estate,9.773527854949105,queda,Real Estate - Development
+2023-11-03,-0.5,Technology,22.166077707496346,queda,Software - Application
+2023-11-03,-0.5,Utilities,6.269689646296617,queda,Utilities - Regulated Electric
+2023-12-14,-0.5,Basic Materials,-0.7210256454358244,queda,Steel
+2023-12-14,-0.5,Communication Services,-3.9592773603101596,queda,Telecom Services
+2023-12-14,-0.5,Consumer Cyclical,-0.5058708471927853,queda,Specialty Retail
+2023-12-14,-0.5,Consumer Defensive,-2.896548648647501,queda,Education & Training Services
+2023-12-14,-0.5,Energy,7.0483351935142435,queda,Oil & Gas E&P
+2023-12-14,-0.5,Financial Services,-0.4548003648140564,queda,Banks - Regional
+2023-12-14,-0.5,Healthcare,-1.4566039779517594,queda,Diagnostics & Research
+2023-12-14,-0.5,Industrials,-2.339740514636884,queda,Rental & Leasing Services
+2023-12-14,-0.5,Real Estate,0.300634067792821,queda,Real Estate - Development
+2023-12-14,-0.5,Technology,-3.449290847294595,queda,Software - Application
+2023-12-14,-0.5,Utilities,2.767004217978508,queda,Utilities - Regulated Electric
+2024-02-01,-0.5,Basic Materials,4.471347011250915,queda,Steel
+2024-02-01,-0.5,Communication Services,3.5129912198040625,queda,Telecom Services
+2024-02-01,-0.5,Consumer Cyclical,7.156676672505725,queda,Specialty Retail
+2024-02-01,-0.5,Consumer Defensive,1.987429957555853,queda,Education & Training Services
+2024-02-01,-0.5,Energy,4.475846773242709,queda,Oil & Gas E&P
+2024-02-01,-0.5,Financial Services,-1.2817358427811676,queda,Banks - Regional
+2024-02-01,-0.5,Healthcare,2.99503126461369,queda,Diagnostics & Research
+2024-02-01,-0.5,Industrials,6.867710557350404,queda,Rental & Leasing Services
+2024-02-01,-0.5,Real Estate,0.2889604875776719,queda,Real Estate - Development
+2024-02-01,-0.5,Technology,-1.6414081348941845,queda,Software - Application
+2024-02-01,-0.5,Utilities,-0.2373417721519111,queda,Utilities - Regulated Electric
+2024-03-21,-0.5,Basic Materials,0.6541426654703919,queda,Steel
+2024-03-21,-0.5,Communication Services,-2.8828772931570157,queda,Telecom Services
+2024-03-21,-0.5,Consumer Cyclical,-10.904205800495152,queda,Specialty Retail
+2024-03-21,-0.5,Consumer Defensive,-6.88935433238218,queda,Education & Training Services
+2024-03-21,-0.5,Energy,4.519169083726049,queda,Oil & Gas E&P
+2024-03-21,-0.5,Financial Services,-3.2707408242860336,queda,Banks - Regional
+2024-03-21,-0.5,Healthcare,-6.590585127816095,queda,Diagnostics & Research
+2024-03-21,-0.5,Industrials,-7.604536840038751,queda,Rental & Leasing Services
+2024-03-21,-0.5,Real Estate,-9.915972665343892,queda,Real Estate - Development
+2024-03-21,-0.5,Technology,-7.929236295034292,queda,Software - Application
+2024-03-21,-0.5,Utilities,-0.9187846601104832,queda,Utilities - Regulated Electric
+2024-05-09,-0.25,Basic Materials,-7.106383115436676,queda,Steel
+2024-05-09,-0.25,Communication Services,-1.950474019758175,queda,Telecom Services
+2024-05-09,-0.25,Consumer Cyclical,-6.087992293250882,queda,Specialty Retail
+2024-05-09,-0.25,Consumer Defensive,-6.6558472965958515,queda,Education & Training Services
+2024-05-09,-0.25,Energy,-11.15922242001426,queda,Oil & Gas E&P
+2024-05-09,-0.25,Financial Services,-3.308757921482436,queda,Banks - Regional
+2024-05-09,-0.25,Healthcare,-2.687514339766656,queda,Diagnostics & Research
+2024-05-09,-0.25,Industrials,-4.756343958007314,queda,Rental & Leasing Services
+2024-05-09,-0.25,Real Estate,-1.1201465027993573,queda,Real Estate - Development
+2024-05-09,-0.25,Technology,1.785705421782735,queda,Software - Application
+2024-05-09,-0.25,Utilities,0.4935756150920012,queda,Utilities - Regulated Electric
+2024-09-19,0.25,Basic Materials,1.9390620672752101,alta,Steel
+2024-09-19,0.25,Communication Services,-3.021193841503167,alta,Telecom Services
+2024-09-19,0.25,Consumer Cyclical,-2.3766182193997842,alta,Specialty Retail
+2024-09-19,0.25,Consumer Defensive,0.9404419090371707,alta,Education & Training Services
+2024-09-19,0.25,Energy,-4.570137905652993,alta,Oil & Gas E&P
+2024-09-19,0.25,Financial Services,-1.1218649555984062,alta,Banks - Regional
+2024-09-19,0.25,Healthcare,-6.944295225180186,alta,Diagnostics & Research
+2024-09-19,0.25,Industrials,-1.5207003528544483,alta,Rental & Leasing Services
+2024-09-19,0.25,Real Estate,-1.994500273686839,alta,Real Estate - Development
+2024-09-19,0.25,Technology,-1.4162414553185898,alta,Software - Application
+2024-09-19,0.25,Utilities,-3.1937561230318545,alta,Utilities - Regulated Electric
+2024-11-07,0.5,Basic Materials,-0.22869621166751175,alta,Steel
+2024-11-07,0.5,Communication Services,0.3016168357045712,alta,Telecom Services
+2024-11-07,0.5,Consumer Cyclical,-11.111134995387644,alta,Specialty Retail
+2024-11-07,0.5,Consumer Defensive,7.031696879037663,alta,Education & Training Services
+2024-11-07,0.5,Energy,1.873235774358828,alta,Oil & Gas E&P
+2024-11-07,0.5,Financial Services,-4.807069692766497,alta,Banks - Regional
+2024-11-07,0.5,Healthcare,-4.665246058628991,alta,Diagnostics & Research
+2024-11-07,0.5,Industrials,-3.57513735672868,alta,Rental & Leasing Services
+2024-11-07,0.5,Real Estate,-7.5175961924342,alta,Real Estate - Development
+2024-11-07,0.5,Technology,-10.645604899165129,alta,Software - Application
+2024-11-07,0.5,Utilities,-0.43287119711250543,alta,Utilities - Regulated Electric
+2024-12-12,1.0,Basic Materials,-13.104524180967235,alta,Steel
+2024-12-12,1.0,Communication Services,-5.7636438381059305,alta,Telecom Services
+2024-12-12,1.0,Consumer Cyclical,-10.339039095742441,alta,Specialty Retail
+2024-12-12,1.0,Consumer Defensive,-0.6421269288122589,alta,Education & Training Services
+2024-12-12,1.0,Energy,1.8680031412847908,alta,Oil & Gas E&P
+2024-12-12,1.0,Financial Services,-4.5229114638797085,alta,Banks - Regional
+2024-12-12,1.0,Healthcare,-5.009571799083417,alta,Diagnostics & Research
+2024-12-12,1.0,Industrials,-8.2944692897637,alta,Rental & Leasing Services
+2024-12-12,1.0,Real Estate,-7.62743706824236,alta,Real Estate - Development
+2024-12-12,1.0,Technology,-8.43332857158594,alta,Software - Application
+2024-12-12,1.0,Utilities,-3.9951574485190378,alta,Utilities - Regulated Electric
+2025-01-30,1.0,Basic Materials,-6.270627062706269,alta,Steel
+2025-01-30,1.0,Communication Services,-0.0906482409969489,alta,Telecom Services
+2025-01-30,1.0,Consumer Cyclical,-6.287196794133049,alta,Specialty Retail
+2025-01-30,1.0,Consumer Defensive,1.4634183174337068,alta,Education & Training Services
+2025-01-30,1.0,Energy,-6.242513237622138,alta,Oil & Gas E&P
+2025-01-30,1.0,Financial Services,-3.002847282826071,alta,Banks - Regional
+2025-01-30,1.0,Healthcare,-4.526797120396308,alta,Diagnostics & Research
+2025-01-30,1.0,Industrials,-8.481122806358155,alta,Rental & Leasing Services
+2025-01-30,1.0,Real Estate,-3.8397071809585404,alta,Real Estate - Development
+2025-01-30,1.0,Technology,2.6423797053900966,alta,Software - Application
+2025-01-30,1.0,Utilities,0.7262790783016282,alta,Utilities - Regulated Electric
+2025-03-20,1.0,Basic Materials,-8.53346033696354,alta,Steel
+2025-03-20,1.0,Communication Services,7.592410585334153,alta,Telecom Services
+2025-03-20,1.0,Consumer Cyclical,7.003946554780505,alta,Specialty Retail
+2025-03-20,1.0,Consumer Defensive,13.673817335190419,alta,Education & Training Services
+2025-03-20,1.0,Energy,-11.520737032239193,alta,Oil & Gas E&P
+2025-03-20,1.0,Financial Services,0.3549706396699326,alta,Banks - Regional
+2025-03-20,1.0,Healthcare,4.39735716609807,alta,Diagnostics & Research
+2025-03-20,1.0,Industrials,5.133102098551301,alta,Rental & Leasing Services
+2025-03-20,1.0,Real Estate,6.932334724815448,alta,Real Estate - Development
+2025-03-20,1.0,Technology,6.957546687245286,alta,Software - Application
+2025-03-20,1.0,Utilities,0.47698449991862013,alta,Utilities - Regulated Electric
+2025-05-08,0.5,Basic Materials,0.05665070258453753,alta,Steel
+2025-05-08,0.5,Communication Services,3.544698371852961,alta,Telecom Services
+2025-05-08,0.5,Consumer Cyclical,11.264023814529445,alta,Specialty Retail
+2025-05-08,0.5,Consumer Defensive,0.0,alta,Education & Training Services
+2025-05-08,0.5,Energy,-0.6138787637206766,alta,Oil & Gas E&P
+2025-05-08,0.5,Financial Services,-1.858489717037054,alta,Banks - Regional
+2025-05-08,0.5,Healthcare,5.733594814085208,alta,Diagnostics & Research
+2025-05-08,0.5,Industrials,2.2937983879906643,alta,Rental & Leasing Services
+2025-05-08,0.5,Real Estate,4.809944302181335,alta,Real Estate - Development
+2025-05-08,0.5,Technology,6.913639029015317,alta,Software - Application
+2025-05-08,0.5,Utilities,1.7475855198134882,alta,Utilities - Regulated Electric
+2025-06-20,0.25,Basic Materials,0.5586675312029055,alta,Steel
+2025-06-20,0.25,Communication Services,-1.191043707963868,alta,Telecom Services
+2025-06-20,0.25,Consumer Cyclical,-5.858783781974564,alta,Specialty Retail
+2025-06-20,0.25,Consumer Defensive,-7.280380094531196,alta,Education & Training Services
+2025-06-20,0.25,Energy,-5.591946489285638,alta,Oil & Gas E&P
+2025-06-20,0.25,Financial Services,-3.2275181142867426,alta,Banks - Regional
+2025-06-20,0.25,Healthcare,-4.983638980518218,alta,Diagnostics & Research
+2025-06-20,0.25,Industrials,-5.819162850336667,alta,Rental & Leasing Services
+2025-06-20,0.25,Real Estate,1.095492614507243,alta,Real Estate - Development
+2025-06-20,0.25,Technology,0.2886000111002929,alta,Software - Application
+2025-06-20,0.25,Utilities,-2.9397088775315328,alta,Utilities - Regulated Electric
