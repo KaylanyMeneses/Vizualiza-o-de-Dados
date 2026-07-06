@@ -79,7 +79,7 @@ Acesse: https://kaylanymeneses.github.io/Vizualiza-o-de-Dados/#como-o-mercado-br
 
 ## Como Executar Localmente
 
-`ash
+```Bash
 # Clonar repositório
 git clone https://github.com/KaylanyMeneses/Vizualiza-o-de-Dados.git
 cd Vizualiza-o-de-Dados/meu-site
