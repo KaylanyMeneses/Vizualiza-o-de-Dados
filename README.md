@@ -1,87 +1,90 @@
-# Ibovespa: Correlação e Estrutura de Mercado
+# Ibovespa: CorrelaÃ§Ã£o e Estrutura de Mercado
 
-Uma análise quantitativa e visual da evolução da correlação entre ações do Ibovespa entre 2018 e 2025, utilizando teoria dos grafos, detecção de comunidades e análise de sensibilidade à taxa de juros.
+Uma anÃ¡lise quantitativa e visual da evoluÃ§Ã£o da correlaÃ§Ã£o entre aÃ§Ãµes do Ibovespa entre 2018 e 2025, utilizando teoria dos grafos, detecÃ§Ã£o de comunidades e anÃ¡lise de sensibilidade Ã  taxa de juros.
 
-## Visão Geral
+## VisÃ£o Geral
 
-Este projeto investiga como eventos globais e decisões de política monetária alteram a estrutura de correlações entre ações brasileiras. Através de análises baseadas em redes complexas, identifica períodos de sincronização de mercado, reorganização setorial pós-crise e sensibilidade diferenciada de setores à Selic.
+Este projeto investiga como eventos globais e decisÃµes de polÃ­tica monetÃ¡ria alteram a estrutura de correlaÃ§Ãµes entre aÃ§Ãµes brasileiras. AtravÃ©s de anÃ¡lises baseadas em redes complexas, identifica perÃ­odos de sincronizaÃ§Ã£o de mercado, reorganizaÃ§Ã£o setorial pÃ³s-crise e sensibilidade diferenciada de setores Ã  Selic.
 
-## Questão Central
+## QuestÃ£o Central
 
-Como eventos globais e nacionais alteram a estrutura de correlações entre ações brasileiras?
+Como eventos globais e nacionais alteram a estrutura de correlaÃ§Ãµes entre aÃ§Ãµes brasileiras?
 
-## Hipóteses Investigadas
+## HipÃ³teses Investigadas
 
-**H1 - Crises**: Em períodos de pânico como a COVID-19, as correlações entre ações disparam, fazendo o mercado colapsar em bloco.
+**H1 - Crises**: Em perÃ­odos de pÃ¢nico como a COVID-19, as correlaÃ§Ãµes entre aÃ§Ãµes disparam, fazendo o mercado colapsar em bloco.
 
-**H2 - Recuperação**: Após crises, setores se reorganizam e divergem novamente, restaurando a estrutura de rede. Comunidades detectadas tendem a coincidir mais com a classificação setorial oficial.
+**H2 - RecuperaÃ§Ã£o**: ApÃ³s crises, setores se reorganizam e divergem novamente, restaurando a estrutura de rede. Comunidades detectadas tendem a coincidir mais com a classificaÃ§Ã£o setorial oficial.
 
-**H3 - Selic**: Bancos e imobiliárias apresentam maior sensibilidade à taxa de juros do que commodities e exportadoras, que são protegidas pela receita em dólar.
+**H3 - Selic**: Bancos e imobiliÃ¡rias apresentam maior sensibilidade Ã  taxa de juros do que commodities e exportadoras, que sÃ£o protegidas pela receita em dÃ³lar.
 
-**H4 - Comunidades**: Algoritmos de detecção de comunidades revelam agrupamentos que refletem—e às vezes transgridem—a classificação setorial oficial.
+**H4 - Comunidades**: Algoritmos de detecÃ§Ã£o de comunidades revelam agrupamentos que refletemâ€”e Ã s vezes transgridemâ€”a classificaÃ§Ã£o setorial oficial.
 
 ## Dados e Metodologia
 
 ### Fonte de Dados
 
-- Composição: Lista oficial de ativos do Ibovespa via API B3
-- Histórico: Série OHLCV (2018-2025) do Yahoo Finance (~80 ações, ~1800 dias)
-- Selic: Meta da taxa básica de juros via SGS/Banco Central do Brasil
-- Metadados: Setor e indústria de cada ação via Yahoo Finance
+- ComposiÃ§Ã£o: Lista oficial de ativos do Ibovespa via API B3
+- HistÃ³rico: SÃ©rie OHLCV (2018-2025) do Yahoo Finance (~80 aÃ§Ãµes, ~1800 dias)
+- Selic: Meta da taxa bÃ¡sica de juros via SGS/Banco Central do Brasil
+- Metadados: Setor e indÃºstria de cada aÃ§Ã£o via Yahoo Finance
 
 ### Pipeline de Processamento
 
-1. Validação de tickers contra Yahoo Finance
-2. Download de histórico ajustado por splits e dividendos
-3. Cálculo de derivados: retorno diário, log-retorno, volatilidade 20d anualizada
-4. Matriz de correlação de Pearson por período trimestral
-5. Construção de grafos com limiar de correlação |r| = 0.5
-6. Detecção de comunidades via algoritmo de Louvain
-7. Regressão OLS de retornos contra variações da Selic
-8. Cálculo de métricas de rede: densidade, modularidade, NMI vs. setores
+1. ValidaÃ§Ã£o de tickers contra Yahoo Finance
+2. Download de histÃ³rico ajustado por splits e dividendos
+3. CÃ¡lculo de derivados: retorno diÃ¡rio, log-retorno, volatilidade 20d anualizada
+4. Matriz de correlaÃ§Ã£o de Pearson por perÃ­odo trimestral
+5. ConstruÃ§Ã£o de grafos com limiar de correlaÃ§Ã£o |r| = 0.5
+6. DetecÃ§Ã£o de comunidades via algoritmo de Louvain
+7. RegressÃ£o OLS de retornos contra variaÃ§Ãµes da Selic
+8. CÃ¡lculo de mÃ©tricas de rede: densidade, modularidade, NMI vs. setores
 
-### Métricas Principais
+### MÃ©tricas Principais
 
-- Correlação Média Absoluta: Valor absoluto médio de todas as correlações da rede
-- Densidade da Rede: Proporção de arestas existentes sobre o total possível
-- Modularidade (Louvain Q): Qualidade da partição em comunidades
-- NMI (Normalized Mutual Information): Concordância entre comunidades detectadas e setores B3
-- Beta Selic: Sensibilidade do retorno setorial a variações da Selic
+- CorrelaÃ§Ã£o MÃ©dia Absoluta: Valor absoluto mÃ©dio de todas as correlaÃ§Ãµes da rede
+- Densidade da Rede: ProporÃ§Ã£o de arestas existentes sobre o total possÃ­vel
+- Modularidade (Louvain Q): Qualidade da partiÃ§Ã£o em comunidades
+- NMI (Normalized Mutual Information): ConcordÃ¢ncia entre comunidades detectadas e setores B3
+- Beta Selic: Sensibilidade do retorno setorial a variaÃ§Ãµes da Selic
 
 ## Estrutura do Projeto
 
 `
 meu-site/
 +-- src/
-¦   +-- index.md              # Página de análise principal
-¦   +-- metodologia.md        # Documentação técnica e metodológica
-¦   +-- components/
-¦   ¦   +-- timeline.js       # Componente de visualização
-¦   +-- data/
-¦       +-- *_network_metrics_quarterly.csv
-¦       +-- *_selic_beta*.csv
-¦       +-- *_correlation_graph_quarterly.json
-¦       +-- [dados brutos]
-+-- observablehq.config.js    # Configuração do Observable Framework
-+-- package.json              # Dependências
+Â¦   +-- index.md              # PÃ¡gina de anÃ¡lise principal
+Â¦   +-- metodologia.md        # DocumentaÃ§Ã£o tÃ©cnica e metodolÃ³gica
+Â¦   +-- components/
+Â¦   Â¦   +-- timeline.js       # Componente de visualizaÃ§Ã£o
+Â¦   +-- data/
+Â¦       +-- *_network_metrics_quarterly.csv
+Â¦       +-- *_selic_beta*.csv
+Â¦       +-- *_correlation_graph_quarterly.json
+Â¦       +-- [dados brutos]
++-- observablehq.config.js    # ConfiguraÃ§Ã£o do Observable Framework
++-- package.json              # DependÃªncias
 +-- README.md
 `
 
 ## Tecnologias
 
-- Framework: Observable (análise e visualização interativa)
-- Visualização: D3.js (grafos, séries temporais, heatmaps)
-- Dados: Python (processamento e cálculo de métricas)
-- Controle de Versão: Git/GitHub
+- Framework: Observable (anÃ¡lise e visualizaÃ§Ã£o interativa)
+- VisualizaÃ§Ã£o: D3.js (grafos, sÃ©ries temporais, heatmaps)
+- Dados: Python (processamento e cÃ¡lculo de mÃ©tricas)
+- Controle de VersÃ£o: Git/GitHub
+
+## Para ExecuÃ§Ã£o Online
+Acesse: https://kaylanymeneses.github.io/Vizualiza-o-de-Dados/#como-o-mercado-brasileiro-responde-ao-mundo
 
 ## Como Executar Localmente
 
 `ash
-# Clonar repositório
+# Clonar repositÃ³rio
 git clone https://github.com/KaylanyMeneses/Vizualiza-o-de-Dados.git
 cd Vizualiza-o-de-Dados/meu-site
 
-# Instalar dependências
+# Instalar dependÃªncias
 npm install
 
 # Iniciar servidor local
@@ -90,23 +93,23 @@ npm run dev
 
 Acesse http://localhost:3000 no navegador.
 
-## Páginas
+## PÃ¡ginas
 
-- Análise: Visualizações interativas das quatro hipóteses, com grafos, séries temporais, rankings de sensibilidade e heatmaps.
-- Metodologia: Documentação técnica detalhada do pipeline de dados, algoritmos utilizados, métricas calculadas e decisões de design de cada visualização.
+- AnÃ¡lise: VisualizaÃ§Ãµes interativas das quatro hipÃ³teses, com grafos, sÃ©ries temporais, rankings de sensibilidade e heatmaps.
+- Metodologia: DocumentaÃ§Ã£o tÃ©cnica detalhada do pipeline de dados, algoritmos utilizados, mÃ©tricas calculadas e decisÃµes de design de cada visualizaÃ§Ã£o.
 
 ## Principais Achados
 
-- A COVID-19 (Q1 2020) causou sincronização extrema do mercado, com correlação média atingindo máximos históricos
-- Após a crise, setores se reorganizaram gradualmente, com comunidades detectadas recuperando alinhamento com classificação B3
-- Bancos apresentam beta Selic positivo (se beneficiam de alta de juros), enquanto varejistas e imobiliárias sofrem
-- Commodities exportadoras mostram menor sensibilidade à Selic devido a receita em dólar
-- Detecção de comunidades revela agrupamentos transversais que não coincidem perfeitamente com setores oficiais
+- A COVID-19 (Q1 2020) causou sincronizaÃ§Ã£o extrema do mercado, com correlaÃ§Ã£o mÃ©dia atingindo mÃ¡ximos histÃ³ricos
+- ApÃ³s a crise, setores se reorganizaram gradualmente, com comunidades detectadas recuperando alinhamento com classificaÃ§Ã£o B3
+- Bancos apresentam beta Selic positivo (se beneficiam de alta de juros), enquanto varejistas e imobiliÃ¡rias sofrem
+- Commodities exportadoras mostram menor sensibilidade Ã  Selic devido a receita em dÃ³lar
+- DetecÃ§Ã£o de comunidades revela agrupamentos transversais que nÃ£o coincidem perfeitamente com setores oficiais
 
 ## Autor
 
 Desenvolvido por Kaylany Meneses
 
-## Licença
+## LicenÃ§a
 
-Este projeto está disponível sob licença aberta. Consulte o arquivo LICENSE para mais detalhes.
+Este projeto estÃ¡ disponÃ­vel sob licenÃ§a aberta. Consulte o arquivo LICENSE para mais detalhes.
