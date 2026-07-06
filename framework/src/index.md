@@ -4,6 +4,27 @@ title: Ibovespa · Correlação e Estrutura de Mercado
 
 ```js
 import * as d3 from "npm:d3";
+
+// Paleta de cores por setor do Ibovespa. Os setores são ordenados alfabeticamente
+// nos gráficos e recebem a cor pela mesma posição do índice abaixo:
+//  0 Basic Materials   1 Communication Services   2 Consumer Cyclical
+//  3 Consumer Defensive   4 Energy   5 Financial Services   6 Healthcare
+//  7 Industrials   8 Real Estate   9 Technology   10 Utilities
+// Para mudar a cor de um setor específico, edite o hex na posição correspondente.
+const SECTOR_COLORS = [
+  "#4C78A8", // 0  Basic Materials        azul
+  "#F2994A", // 1  Communication Services laranja
+  "#EB5757", // 2  Consumer Cyclical      vermelho
+  "#0FA3A3", // 3  Consumer Defensive     verde-azulado
+  "#27AE60", // 4  Energy                 verde
+  "#F2C94C", // 5  Financial Services     amarelo/dourado
+  "#9B51E0", // 6  Healthcare             roxo
+  "#EB5FA4", // 7  Industrials            rosa/magenta
+  "#B08968", // 8  Real Estate            marrom
+  "#9AA5B1", // 9  Technology             cinza
+  "#5B4FCF", // 10 Utilities              índigo
+  "#8FBC3F", // reserva, usada só se surgir um 12º setor
+];
 ```
 
 ```js
@@ -128,7 +149,7 @@ const correlationData = await FileAttachment("data/ibovespa_correlation_graph_qu
 {
   // Barras horizontais: nº de ações por setor — mesmas cores do grafo
   const setoresUnicos = [...new Set(setores.map(d=>d.sector).filter(Boolean))].sort()
-  const palette = d3.scaleOrdinal(d3.schemeTableau10).domain(setoresUnicos)
+  const palette = d3.scaleOrdinal(SECTOR_COLORS).domain(setoresUnicos)
   const contagem = d3.rollup(setores.filter(d=>d.sector), v=>v.length, d=>d.sector)
   const data = setoresUnicos.map(s=>({name:s, n:contagem.get(s)||0, color:palette(s)}))
     .sort((a,b)=>d3.descending(a.n,b.n))
@@ -304,7 +325,7 @@ Entre 2020 e 2022, o Brasil viveu um ciclo histórico: a Selic foi de **2% ao an
 
 O ponto de partida é olhar como cada ação se comportou ao longo do tempo. Setores inteiros se movem juntos — bancos sobem e caem em bloco, commodities respondem ao dólar. Isso levanta a pergunta central: quanto dessa co-movimentação é estrutural?
 
-Clique em uma linha para destacar; clique no nome do setor na legenda para filtrar por setor; clique em qualquer área vazia para limpar a seleção.
+O gráfico inicia mostrando 1 ativo de destaque de cada um destes 5 setores: Basic Materials, Consumer Cyclical, Energy, Financial Services e Industrials. Ao marcar qualquer setor no filtro abaixo, essa visão inicial some e dá lugar aos setores marcados (com todos os seus ativos); "Limpar seleção" traz de volta os 5 iniciais. Clique em uma linha para destacar um ativo específico.
 
 <p class="src">Fonte: Yahoo Finance · Período 2018–2025 · Retorno acumulado sobre log-retornos diários</p>
 
@@ -312,11 +333,65 @@ Clique em uma linha para destacar; clique no nome do setor na legenda para filtr
 <div class="viz">
 
 ```js
+const tickers    = [...new Set(dfTS.map(d=>d.ticker_clean))].sort()
+const sectorMap  = Object.fromEntries(setores.map(d=>[d.ticker_clean,d.sector]))
+const sectorList = [...new Set(tickers.map(t=>sectorMap[t]).filter(Boolean))].sort()
+
+// ativo "representante" de cada setor: o de maior retorno acumulado ao final da série
+const lastReturn = new Map(
+  Array.from(
+    d3.group(dfTS.filter(d=>d.cumulative_return!=null), d=>d.ticker_clean),
+    ([ticker, vals]) => [ticker, vals.reduce((a,b)=> new Date(a.date) > new Date(b.date) ? a : b).cumulative_return]
+  )
+)
+const repTicker = new Map()
+for(const ticker of tickers){
+  const sector = sectorMap[ticker]
+  if(!sector || !lastReturn.has(ticker)) continue
+  const atual = repTicker.get(sector)
+  if(!atual || +lastReturn.get(ticker) > +lastReturn.get(atual)) repTicker.set(sector, ticker)
+}
+
+// setores exibidos ao carregar a página (1 ativo representante cada)
+const DEFAULT_SECTORS = ["Basic Materials", "Consumer Cyclical", "Energy", "Financial Services", "Industrials"]
+  .filter(s => sectorList.includes(s))
+const pinnedTickers = new Set(DEFAULT_SECTORS.map(s => repTicker.get(s)).filter(Boolean))
+```
+
+```js
+const sectorInput = Inputs.checkbox(sectorList, { value: [] })
+sectorInput.style.cssText = "max-height:160px;overflow-y:auto;display:block;font-size:12px;"
+
+// filtro fechado por padrão (igual ao dropdown "Métrica"); abre/fecha ao clicar no resumo
+const summary = html`<summary style="cursor:pointer;user-select:none;background:#1e293b;color:#fff;border:1px solid #334155;border-radius:6px;padding:5px 14px;font-size:13px;list-style:none;display:inline-block;">Setores ▾</summary>`
+const body = html`<div style="margin-top:6px;border:1px solid #334155;border-radius:6px;padding:8px 10px;background:#0f172a;max-width:260px;">${sectorInput}</div>`
+const details = html`<details>${summary}${body}</details>`
+
+function syncSummary(){
+  const n = sectorInput.value.length
+  summary.textContent = (n ? `Setores (${n}) ` : "Setores ") + "▾"
+}
+sectorInput.addEventListener("input", syncSummary)
+syncSummary()
+display(details)
+
+const sectorFilter = Generators.input(sectorInput)
+```
+
+```js
 {
-  const tickers    = [...new Set(dfTS.map(d=>d.ticker_clean))].sort()
-  const sectorMap  = Object.fromEntries(setores.map(d=>[d.ticker_clean,d.sector]))
-  const sectorList = [...new Set(tickers.map(t=>sectorMap[t]).filter(Boolean))].sort()
-  const palette    = d3.scaleOrdinal(d3.schemeTableau10).domain(sectorList)
+  const mkBtn = (label, val) => {
+    const b = html`<button style="background:#1e293b;color:#fff;border:1px solid #334155;border-radius:6px;padding:3px 10px;font-size:12px;cursor:pointer;">${label}</button>`
+    b.onclick = () => { sectorInput.value = val; sectorInput.dispatchEvent(new Event("input", {bubbles:true})) }
+    return b
+  }
+  display(html`<div style="display:flex;gap:8px;margin:.5rem 0 1rem;">${mkBtn("Selecionar todos", sectorList)}${mkBtn("Limpar seleção", [])}</div>`)
+}
+```
+
+```js
+{
+  const palette = d3.scaleOrdinal(SECTOR_COLORS).domain(sectorList)
 
   const W=860, H=380, m={top:16,right:180,bottom:40,left:58}
   const svg = d3.create("svg").attr("viewBox",[0,0,W,H])
@@ -350,7 +425,7 @@ Clique em uma linha para destacar; clique no nome do setor na legenda para filtr
     const path = svg.append("path")
       .datum(values.sort((a,b)=>new Date(a.date)-new Date(b.date)))
       .attr("fill","none").attr("stroke",palette(sectorMap[ticker]))
-      .attr("stroke-width",1.2).attr("opacity",0.6).style("cursor","pointer").attr("d",line)
+      .attr("stroke-width",1.2).style("cursor","pointer").attr("d",line)
       .on("click", function(){ active = active===ticker ? null : ticker; upd() })
     paths[ticker] = {path}
   }
@@ -359,28 +434,25 @@ Clique em uma linha para destacar; clique no nome do setor na legenda para filtr
 
   function upd(){
     for(const [t,{path}] of Object.entries(paths)){
-      if(!active) path.attr("opacity",0.6).attr("stroke-width",1.2)
+      const sectorVisible = sectorFilter.length > 0
+        ? sectorFilter.includes(sectorMap[t])
+        : pinnedTickers.has(t)
+      if(!active) path.attr("opacity", sectorVisible ? 0.6 : 0).attr("stroke-width", sectorVisible ? 1.2 : 1)
       else if(t===active) path.attr("opacity",1).attr("stroke-width",2.5).raise()
       else path.attr("opacity",0.08).attr("stroke-width",1)
     }
     lbl.text(active ? `${active} · ${sectorMap[active]}` : "clique para destacar")
   }
 
+  // legenda apenas informativa (cor ↔ setor); a seleção fica a cargo do filtro acima
   const leg = svg.append("g").attr("transform",`translate(${W-m.right+14},${m.top})`)
   sectorList.forEach((s,i) => {
-    const g = leg.append("g").attr("transform",`translate(0,${i*22})`).style("cursor","pointer")
+    const g = leg.append("g").attr("transform",`translate(0,${i*22})`)
     g.append("line").attr("x1",0).attr("x2",16).attr("y1",0).attr("y2",0).attr("stroke",palette(s)).attr("stroke-width",2.5)
     g.append("text").attr("x",22).attr("y",4).attr("fill","#ffffff").attr("font-size",12).text(s)
-    g.on("click",()=>{
-      const ins = Object.keys(paths).filter(t=>sectorMap[t]===s)
-      for(const [t,{path}] of Object.entries(paths)){
-        ins.includes(t) ? path.attr("opacity",1).attr("stroke-width",2).raise()
-                        : path.attr("opacity",0.05).attr("stroke-width",1)
-      }
-      lbl.text(`setor: ${s}`)
-    })
   })
   svg.on("click", e=>{ if(e.target.tagName!=="path"){ active=null; upd() } })
+  upd()
   display(svg.node())
 }
 ```
@@ -905,7 +977,7 @@ Use o **slider** para navegar entre períodos históricos. Nos períodos de cris
     const nodeSet=new Set(nodes.map(d=>d.id))
     const links=period.edges.filter(d=>nodeSet.has(d.source)&&nodeSet.has(d.target)).map(d=>({...d}))
     const sectors=[...new Set(nodes.map(d=>d.sector))].sort()
-    const color=d3.scaleOrdinal(d3.schemeTableau10).domain(sectors)
+    const color=d3.scaleOrdinal(SECTOR_COLORS).domain(sectors)
     const sizeScale=d3.scaleSqrt().domain(d3.extent(nodes,d=>d.avg_volume)).range([5,16])
     const widthScale=d3.scaleLinear().domain([0.5,1]).range([0.6,4])
     const adj=new Map(nodes.map(n=>[n.id,new Set()]))
