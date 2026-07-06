@@ -20,6 +20,34 @@ const correlationData = await FileAttachment("data/ibovespa_correlation_graph_qu
 {
   const style = document.createElement("style")
   style.textContent = `
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #000000;
+      color: #ffffff;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      padding: 0 2rem;
+    }
+    
+    main, section, article {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    a { color: #ffffff; }
+    a:hover { color: #ffffff; }
+
+    /* ── centralização global ── */
+    h1, h2, h3, p:not(.narr p) { max-width:1280px; margin-left:auto; margin-right:auto; }
+
     /* ── fade-in scroll ── */
     .fade-section { opacity:0; transform:translateY(40px); transition:opacity .9s ease, transform .9s ease; }
     .fade-section.visible { opacity:1; transform:translateY(0); }
@@ -27,42 +55,42 @@ const correlationData = await FileAttachment("data/ibovespa_correlation_graph_qu
     /* ── layout narrativo lado-a-lado (apenas seções de história pré-transição) ── */
     .story-grid {
       display:grid; grid-template-columns:1fr 1fr; gap:3rem;
-      align-items:center; padding:3.5rem 0; border-bottom:1px solid #1e293b;
+      align-items:center; padding:3.5rem 0; max-width:1280px; margin:0 auto;
     }
     .story-grid.flip > *:first-child { order:2; }
     .story-grid.flip > *:last-child  { order:1; }
 
     /* ── layout texto acima, viz abaixo (a partir da transição) ── */
-    .story-stack { padding:3.5rem 0; border-bottom:1px solid #1e293b; }
+    .story-stack { padding:3.5rem 0; max-width:1280px; margin:0 auto; }
     .story-stack .narr { max-width:720px; margin:0 auto 2.5rem; }
     .story-stack .viz  { max-width:920px; margin:0 auto; }
 
     /* ── texto narrativo ── */
-    .narr h2 { font-size:1.45rem; font-weight:700; color:#f1f5f9; margin-bottom:.7rem; }
-    .narr p  { color:#94a3b8; line-height:1.8; font-size:.93rem; margin-bottom:.6rem; }
-    .narr .chip { display:inline-block; background:#1e3a5f; color:#93c5fd; font-size:.72rem;
-                  padding:2px 9px; border-radius:99px; margin-bottom:.8rem; letter-spacing:.03em; }
-    .narr .src  { color:#475569; font-size:.73rem; margin-top:.6rem; }
+    .narr h2 { font-size:1.65rem; font-weight:700; color:#ffffff; margin-bottom:.8rem; text-align:left; }
+    .narr p  { color:#ffffff; line-height:1.8; font-size:1.05rem; margin-bottom:.85rem; text-align:left; }
+    .narr .chip { display:inline-block; background:#1e3a5f; color:#ffffff; font-size:.86rem;
+                  padding:4px 11px; border-radius:99px; margin-bottom:1rem; letter-spacing:.04em; }
+    .narr .src  { color:#ffffff; font-size:.86rem; margin-top:.8rem; }
 
-    /* ── hero ── */
-    .hero-wrap { padding:5rem 0 2rem; }
-    .hero-wrap h1 { font-size:2.2rem; font-weight:800; color:#f8fafc; line-height:1.25; }
-    .hero-wrap .sub { color:#64748b; font-size:1rem; margin-top:.6rem; max-width:680px; line-height:1.7; }
-    .hero-wrap .question { border-left:3px solid #3b82f6; padding-left:1rem; margin:1.8rem 0;
-                           color:#93c5fd; font-size:1.05rem; font-style:italic; }
-    .hyp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin-top:1.5rem; }
-    .hyp-card { background:#0f172a; border:1px solid #1e293b; border-radius:10px; padding:1rem 1.2rem; }
-    .hyp-card .label { font-size:.72rem; color:#3b82f6; font-weight:700; letter-spacing:.05em; margin-bottom:.3rem; }
-    .hyp-card p { font-size:.85rem; color:#94a3b8; line-height:1.6; margin:0; }
+/* ── hero ── */
+.hero-wrap { padding:5rem 0 2rem; max-width:1280px; margin:0 auto; }
+.hero-wrap h1 { font-size:2.6rem; font-weight:800; color:#ffffff; line-height:1.2; text-align:center; }
+.hero-wrap .sub { color:#ffffff; font-size:1.18rem; margin:1rem auto .8rem; max-width:720px; line-height:1.85; }
+.hero-wrap .question { border-left:3px solid #3b82f6; padding-left:1rem; margin:1.8rem auto;
+                       color:#ffffff; font-size:1.35rem; font-style:italic; max-width:720px; }
+.hyp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; margin:1.5rem auto 0; max-width:900px; }
+.hyp-card { background:#0f172a; border:1px solid #1e293b; border-radius:10px; padding:1.4rem 1.6rem; }
+.hyp-card .label { font-size:.92rem; color:#ffffff; font-weight:700; letter-spacing:.05em; margin-bottom:.55rem; }
+.hyp-card p { font-size:1.03rem; color:#ffffff; line-height:1.8; margin:0; }
 
     /* ── misc ── */
-    .divider { border:none; border-top:1px solid #1e293b; margin:1rem 0; }
-    .section-title { font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
-                     color:#475569; margin-bottom:2.5rem; }
-    .transition-block { text-align:center; padding:4rem 0 2rem; }
+    .divider { display:none; }
+    .section-title { font-size:.85rem; letter-spacing:.12em; text-transform:uppercase;
+                     color:#ffffff; margin:2.5rem auto; text-align:center; max-width:1280px; }
+    .transition-block { text-align:center; padding:5rem 0; max-width:900px; margin:0 auto; }
 
     /* ── eixo X compacto ── */
-    .x-tick-label { font-size:9px !important; }
+    .x-tick-label { font-size:10px !important; }
   `
   document.head.appendChild(style)
 
@@ -90,8 +118,6 @@ const correlationData = await FileAttachment("data/ibovespa_correlation_graph_qu
   <div class="hyp-card"><div class="label">H4 · Comunidades</div><p>Algoritmos de detecção revelam agrupamentos que refletem — e às vezes transgridem — a classificação setorial.</p></div>
 </div>
 </div>
-
-<hr class="divider"/>
 
 <!-- ══════════════ HISTÓRIA 2 — SETORES ══════════════ -->
 
@@ -136,14 +162,14 @@ const correlationData = await FileAttachment("data/ibovespa_correlation_graph_qu
   svg.selectAll("text.lbl").data(data).join("text").attr("class","lbl")
     .attr("x", mL-6).attr("y", d=>y(d.name)+y.bandwidth()/2)
     .attr("dy","0.35em").attr("text-anchor","end")
-    .attr("font-size",11).attr("fill",d=>d.color).attr("font-weight","500")
+    .attr("font-size",12).attr("fill","#ffffff").attr("font-weight","500")
     .text(d=>d.name)
 
   // Valor (direita da barra)
   svg.selectAll("text.val").data(data).join("text").attr("class","val")
     .attr("x", d=>x(d.n)+5).attr("y", d=>y(d.name)+y.bandwidth()/2)
     .attr("dy","0.35em").attr("text-anchor","start")
-    .attr("font-size",10).attr("fill","#64748b")
+    .attr("font-size",11).attr("fill","#ffffff")
     .text(d=>d.n)
 
   display(svg.node())
@@ -222,7 +248,7 @@ Entre 2020 e 2022, o Brasil viveu um ciclo histórico: a Selic foi de **2% ao an
     svg.append("line").attr("x1",55).attr("x2",W-20).attr("y1",y(v)).attr("y2",y(v))
       .attr("stroke","#1e293b").attr("stroke-width",1)
     svg.append("text").attr("x",48).attr("y",y(v)+4).attr("text-anchor","end")
-      .attr("font-size",8).attr("fill","#475569").text(v+"%")
+      .attr("font-size",10).attr("fill","#ffffff").text(v+"%")
   })
 
   const area = d3.area().x(d=>x(d.date)).y0(H-35).y1(d=>y(d.v)).curve(d3.curveStepAfter)
@@ -233,17 +259,17 @@ Entre 2020 e 2022, o Brasil viveu um ciclo histórico: a Selic foi de **2% ao an
   const minPt = selicData.reduce((a,b)=>a.v<b.v?a:b)
   const maxPt = selicData.reduce((a,b)=>a.v>b.v?a:b)
   svg.append("text").attr("x",x(minPt.date)).attr("y",y(minPt.v)-10)
-    .attr("text-anchor","middle").attr("font-size",8).attr("fill","#10b981").text(`mín. ${minPt.v}%`)
+    .attr("text-anchor","middle").attr("font-size",10).attr("fill","#10b981").text(`mín. ${minPt.v}%`)
   svg.append("text").attr("x",x(maxPt.date)).attr("y",y(maxPt.v)-10)
-    .attr("text-anchor","middle").attr("font-size",8).attr("fill","#f87171").text(`pico ${maxPt.v}%`)
+    .attr("text-anchor","middle").attr("font-size",10).attr("fill","#f87171").text(`pico ${maxPt.v}%`)
 
   const anos = d3.timeYear.range(xExt[0], xExt[1])
   anos.forEach(a => {
     svg.append("text").attr("x",x(a)).attr("y",H-16)
-      .attr("text-anchor","middle").attr("font-size",9).attr("fill","#475569").text(a.getFullYear())
+    .attr("text-anchor","middle").attr("font-size",11).attr("fill","#ffffff").text(a.getFullYear())
   })
   svg.append("text").attr("x",W/2).attr("y",15)
-    .attr("text-anchor","middle").attr("font-size",10).attr("fill","#64748b").attr("font-weight","600")
+    .attr("text-anchor","middle").attr("font-size",10).attr("fill","#ffffff").attr("font-weight","600")
     .text("Meta Selic — COPOM (% a.a.)")
 
   display(svg.node())
@@ -256,14 +282,12 @@ Entre 2020 e 2022, o Brasil viveu um ciclo histórico: a Selic foi de **2% ao an
 <!-- ══════════════ TRANSIÇÃO ══════════════ -->
 
 <div class="transition-block fade-section">
-  <p style="color:#475569;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;">A investigação começa agora</p>
-  <h2 style="font-size:2rem;font-weight:700;color:#f1f5f9;margin:.8rem auto;text-align:center;max-width:700px;line-height:1.3;">Com esse cenário em mente, partimos para os dados</h2>
-  <p style="color:#94a3b8;max-width:600px;margin:.8rem auto 0;line-height:1.8;font-size:1rem;text-align:center;">
+  <p style="color:#ffffff;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;">A investigação começa agora</p>
+  <h2 style="font-size:1.8rem;font-weight:700;color:#ffffff;margin:.8rem 0;text-align:center;">Com esse cenário em mente, partimos para os dados</h2>
+  <p style="color:#ffffff;max-width:600px;margin:.8rem auto 0;line-height:1.8;font-size:1rem;text-align:center;">
     Construímos redes de correlação com ~80 ativos do Ibovespa, aplicamos algoritmos de detecção de comunidades e regredimos retornos contra decisões do COPOM.
   </p>
 </div>
-
-<hr class="divider"/>
 
 <!-- ══════════════ VISUALIZAÇÕES REAIS ══════════════ -->
 
@@ -308,12 +332,12 @@ Clique em uma linha para destacar; clique no nome do setor na legenda para filtr
 
   svg.append("g").attr("transform",`translate(0,${H-m.bottom})`)
     .call(d3.axisBottom(x).ticks(8).tickFormat(d3.timeFormat("%b %Y")))
-    .call(g=>g.selectAll("text").attr("fill","#94a3b8").style("font-size","10px")
+    .call(g=>g.selectAll("text").attr("fill","#94a3b8").style("font-size","11px")
       .attr("transform","rotate(-30)").style("text-anchor","end"))
     .call(g=>g.select(".domain").attr("stroke","#334155"))
   svg.append("g").attr("transform",`translate(${m.left},0)`)
     .call(d3.axisLeft(y).ticks(6).tickFormat(d3.format(".0f")))
-    .call(g=>g.selectAll("text").attr("fill","#94a3b8").style("font-size","10px"))
+    .call(g=>g.selectAll("text").attr("fill","#94a3b8").style("font-size","11px"))
     .call(g=>g.select(".domain").attr("stroke","#334155"))
     .call(g=>g.selectAll(".tick line").clone().attr("x2",W-m.left-m.right).attr("stroke","#1e293b"))
   svg.append("line").attr("x1",m.left).attr("x2",W-m.right).attr("y1",y(0)).attr("y2",y(0))
@@ -331,7 +355,7 @@ Clique em uma linha para destacar; clique no nome do setor na legenda para filtr
     paths[ticker] = {path}
   }
   const lbl = svg.append("text").attr("x",m.left+8).attr("y",m.top+14)
-    .attr("fill","#e2e8f0").attr("font-size",11).text("clique para destacar")
+    .attr("fill","#ffffff").attr("font-size",12).text("clique para destacar")
 
   function upd(){
     for(const [t,{path}] of Object.entries(paths)){
@@ -346,7 +370,7 @@ Clique em uma linha para destacar; clique no nome do setor na legenda para filtr
   sectorList.forEach((s,i) => {
     const g = leg.append("g").attr("transform",`translate(0,${i*22})`).style("cursor","pointer")
     g.append("line").attr("x1",0).attr("x2",16).attr("y1",0).attr("y2",0).attr("stroke",palette(s)).attr("stroke-width",2.5)
-    g.append("text").attr("x",22).attr("y",4).attr("fill","#94a3b8").attr("font-size",10).text(s)
+    g.append("text").attr("x",22).attr("y",4).attr("fill","#ffffff").attr("font-size",12).text(s)
     g.on("click",()=>{
       const ins = Object.keys(paths).filter(t=>sectorMap[t]===s)
       for(const [t,{path}] of Object.entries(paths)){
@@ -425,7 +449,7 @@ const selectedMetricH1 = view(Inputs.select(
     .call(g => g.selectAll("text")
       .attr("transform","rotate(-50)")
       .style("text-anchor","end")
-      .style("font-size","9px")
+      .style("font-size","11px")
       .attr("fill","#94a3b8")
       .attr("dy","0.32em")
       .attr("dx","-0.5em"))
@@ -435,7 +459,7 @@ const selectedMetricH1 = view(Inputs.select(
   svg.append("g").attr("transform",`translate(${m.left},0)`)
     .call(d3.axisLeft(y).ticks(6).tickFormat(d3.format(".3f")))
     .call(g => g.select(".domain").remove())
-    .call(g => g.selectAll(".tick text").attr("fill","#94a3b8").style("font-size","10px"))
+    .call(g => g.selectAll(".tick text").attr("fill","#94a3b8").style("font-size","11px"))
     .call(g => g.selectAll(".tick line").clone().attr("x2",W-m.left-m.right).attr("stroke","#1e293b"))
 
   // Área + linha
@@ -528,7 +552,7 @@ Quando a NMI é alta, o mercado "se comporta como esperado". Quando cai, surgem 
     .call(g => g.selectAll("text")
       .attr("transform","rotate(-50)")
       .style("text-anchor","end")
-      .style("font-size","9px")
+      .style("font-size","11px")
       .attr("fill","#94a3b8")
       .attr("dy","0.32em")
       .attr("dx","-0.5em"))
@@ -538,7 +562,7 @@ Quando a NMI é alta, o mercado "se comporta como esperado". Quando cai, surgem 
   svg.append("g").attr("transform",`translate(${m.left},0)`)
     .call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(".1f")))
     .call(g=>g.select(".domain").remove())
-    .call(g=>g.selectAll(".tick text").attr("fill","#94a3b8").style("font-size","10px"))
+    .call(g=>g.selectAll(".tick text").attr("fill","#ffffff").style("font-size","11px"))
     .call(g=>g.selectAll(".tick line").clone().attr("x2",W-m.left-m.right).attr("stroke","#1e293b"))
 
   svg.append("text").attr("transform","rotate(-90)")
@@ -652,11 +676,6 @@ Beta positivo = o setor tende a se beneficiar quando a Selic sobe. Beta negativo
 
 <span class="chip">H3 · Ticker a ticker</span>
 
-<div class="story-stack fade-section">
-<div class="narr">
-
-<span class="chip">H3 · Ticker a ticker</span>
-
 ## Dentro de cada setor, há heterogeneidade
 
 A visão agregada por setor esconde diferenças importantes. A árvore radial desce ao nível do **ticker individual**, classificando cada ação em três faixas de sensibilidade à Selic.
@@ -672,8 +691,8 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
 {
   const anos = [...new Set(h3TickerYear.map(d=>+d.year))].sort(d3.ascending)
   let anoAtual = anos.includes(2022) ? 2022 : anos[0], grupoSelecionado = null
-  const W=680, H=680, radioArvore=240, radioArco=330, radioArcoIn=298
-  const DURACAO = 2400
+  const W=700, H=700, radioArvore=260, radioArco=345, radioArcoIn=315
+  const DURACAO = 1200
   const GRUPOS = ["Mais sensível","Intermediário","Menos sensível"]
   const GRUPO_SHAPE = {"Mais sensível":"diamond","Intermediário":"rect","Menos sensível":"circle"}
   const SHAPE_FILL="#334155", SHAPE_STROKE="#cbd5e1"
@@ -693,17 +712,12 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
       }))
     }))}
   }
-
   function pos(d){ return `rotate(${d.x*180/Math.PI-90}) translate(${d.y},0)` }
   function parentPos(d){ const p=d.parent||d; return `rotate(${(p?.x??d.x)*180/Math.PI-90}) translate(${p?.y??d.y},0)` }
 
-  const svg = d3.create("svg")
-    .attr("viewBox",[-W/2,-H/2,W,H])
+  const svg = d3.create("svg").attr("viewBox",[-W/2,-H/2,W,H])
     .style("font-family","sans-serif")
-    .style("user-select","none")
-    .style("display","block")
-    .style("margin","0 auto")
-    .style("max-width","680px")
+    .style("user-select","none").style("max-width","100%")
 
   const gYears=svg.append("g"), gLinks=svg.append("g"), gNodes=svg.append("g")
   const segW=(2*Math.PI)/anos.length
@@ -713,134 +727,86 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
   gYears.selectAll("path.arco").data(anos).join("path").attr("class","arco")
     .attr("d",d=>arcGen({startAngle:angleScale(String(d))-segW*0.45, endAngle:angleScale(String(d))+segW*0.45}))
     .attr("fill",d=>d===anoAtual?"#475569":"#334155")
-    .attr("stroke",d=>d===anoAtual?"#e2e8f0":"#0d1117")
-    .attr("stroke-width",d=>d===anoAtual?2.2:2)
-    .style("cursor","pointer")
-    .on("click",function(e,d){ anoAtual=d; update() })
+    .attr("stroke",d=>d===anoAtual?"#e2e8f0":"#0d1117").attr("stroke-width",d=>d===anoAtual?2.2:2)
+    .style("cursor","pointer").on("click",function(e,d){ anoAtual=d; update() })
 
   gYears.selectAll("text.ano-label").data(anos).join("text").attr("class","ano-label")
-    .attr("transform",d=>{
-      const a=angleScale(String(d))-Math.PI/2
-      const r=(radioArcoIn+radioArco)/2
-      return `translate(${r*Math.cos(a)},${r*Math.sin(a)})`
-    })
+    .attr("transform",d=>{const a=angleScale(String(d))-Math.PI/2,r=(radioArcoIn+radioArco)/2;return`translate(${r*Math.cos(a)},${r*Math.sin(a)})`})
     .attr("text-anchor","middle").attr("dominant-baseline","middle")
-    .attr("font-size",14).attr("font-weight",d=>d===anoAtual?"700":"500")
+    .attr("font-size",12).attr("font-weight",d=>d===anoAtual?"700":"500")
     .attr("fill","#e5e7eb").attr("pointer-events","none").text(d=>d)
 
   const tooltip = svg.append("g").attr("display","none").style("pointer-events","none")
   tooltip.append("rect").attr("rx",6).attr("fill","#1e293b").attr("stroke","#94a3b8").attr("stroke-width",1).attr("opacity",0.97)
-  const ttLines = d3.range(7).map(i=>tooltip.append("text").attr("x",10).attr("y",18+i*16).attr("font-size",15).attr("fill","#e5e7eb"))
+  const ttLines = d3.range(7).map(i=>tooltip.append("text").attr("x",10).attr("y",18+i*16).attr("font-size",12).attr("fill","#e5e7eb"))
 
   function update(){
     const dados = base.filter(d=>+d.year===anoAtual)
     const root = d3.hierarchy(buildHierarchy(dados)).sum(d=>d.value||0).sort((a,b)=>b.value-a.value)
     d3.cluster().size([2*Math.PI,radioArvore])(root)
     const t = svg.transition().duration(DURACAO).ease(d3.easeCubicInOut)
+    const maxBeta = d3.max(dados,d=>Math.abs(+d.beta_selic_30d))||1
+    const rScale = d3.scaleSqrt().domain([0,maxBeta]).range([2,9])
 
     gYears.selectAll("path.arco").transition(t)
-      .attr("fill",d=>d===anoAtual?"#475569":"#334155")
-      .attr("stroke",d=>d===anoAtual?"#e2e8f0":"#0d1117")
-    gYears.selectAll("text.ano-label").transition(t)
-      .attr("font-weight",d=>d===anoAtual?"700":"500")
+      .attr("fill",d=>d===anoAtual?"#475569":"#334155").attr("stroke",d=>d===anoAtual?"#e2e8f0":"#0d1117")
+    gYears.selectAll("text.ano-label").transition(t).attr("font-weight",d=>d===anoAtual?"700":"500")
 
     const radialLink = d3.linkRadial().angle(d=>d.x).radius(d=>d.y)
-
-    gLinks.selectAll("path.link")
-      .data(root.links(), d=>`${d.source.data.name}->${d.target.data.name}`)
+    gLinks.selectAll("path.link").data(root.links(), d=>`${d.source.data.name}->${d.target.data.name}`)
       .join(
-        enter => enter.append("path").attr("class","link")
-          .attr("fill","none").attr("stroke","#29405c").attr("stroke-width",0.8)
-          .attr("opacity",0).attr("d",radialLink)
+        enter => enter.append("path").attr("class","link").attr("fill","none").attr("stroke","#29405c").attr("stroke-width",0.8).attr("opacity",0).attr("d",radialLink)
           .call(e=>e.transition(t).attr("opacity",1).attr("d",radialLink)),
-        upd => upd.call(u=>u.transition(t)
-          .attr("opacity",d=>!grupoSelecionado?1:(d.source.data.name===grupoSelecionado||d.target.parent?.data?.name===grupoSelecionado)?1:0.06)
-          .attr("d",radialLink)),
+        upd => upd.call(u=>u.transition(t).attr("opacity",d=>!grupoSelecionado?1:(d.source.data.name===grupoSelecionado||d.target.parent?.data?.name===grupoSelecionado)?1:0.06).attr("d",radialLink)),
         exit => exit.call(e=>e.transition(t).attr("opacity",0).remove())
       )
 
-    gNodes.selectAll("g.node")
-      .data(root.descendants(), d=>`${d.depth}-${d.data.name}`)
+    gNodes.selectAll("g.node").data(root.descendants(), d=>`${d.depth}-${d.data.name}`)
       .join(
         enter => {
-          const g = enter.append("g").attr("class","node")
-            .attr("transform",d=>parentPos(d)).attr("opacity",0)
+          const g = enter.append("g").attr("class","node").attr("transform",d=>parentPos(d)).attr("opacity",0)
           g.each(function(d){
             const s=d3.select(this)
             if(d.depth===0) s.append("circle")
-            else if(d.depth===1){
-              const sh=GRUPO_SHAPE[d.data.name]||"circle"
-              if(sh==="circle") s.append("circle")
-              else if(sh==="rect") s.append("rect")
-              else s.append("polygon")
-            }
+            else if(d.depth===1){ const sh=GRUPO_SHAPE[d.data.name]||"circle"; if(sh==="circle")s.append("circle"); else if(sh==="rect")s.append("rect"); else s.append("polygon") }
             else s.append("circle")
           })
           g.append("text")
           return g.call(e=>e.transition(t).attr("opacity",1).attr("transform",d=>pos(d)))
         },
-        upd => upd.call(u=>u.transition(t)
-          .attr("transform",d=>pos(d))
-          .attr("opacity",d=>!grupoSelecionado?1:(
-            d.depth===0||(d.depth===1&&d.data.name===grupoSelecionado)||(d.depth===2&&d.parent.data.name===grupoSelecionado)
-          )?1:0.06)),
+        upd => upd.call(u=>u.transition(t).attr("transform",d=>pos(d)).attr("opacity",d=>!grupoSelecionado?1:(d.depth===0||(d.depth===1&&d.data.name===grupoSelecionado)||(d.depth===2&&d.parent.data.name===grupoSelecionado))?1:0.06)),
         exit => exit.call(e=>e.transition(t).attr("opacity",0).attr("transform",d=>parentPos(d)).remove())
       )
       .style("cursor",d=>d.depth>=1?"pointer":"default")
       .call(node=>{
         node.select("circle").transition(t)
-          .attr("r",d=>d.depth===0?5:d.depth===2?5:7)
+          .attr("r",d=>d.depth===0?5:d.depth===2?rScale(Math.abs(d.data.beta)):6)
           .attr("fill",d=>d.depth===2?sectorColor(d.data.sector):d.depth===0?"#94a3b8":SHAPE_FILL)
           .attr("stroke",d=>d.depth===2?d3.color(sectorColor(d.data.sector)).darker(0.8).toString():SHAPE_STROKE)
           .attr("stroke-width",d=>d.depth===1?1.8:0.8)
           .attr("opacity",d=>d.depth===2?(d.data.significant==="True"||d.data.significant===true?0.98:0.6):1)
-
         node.select("rect").transition(t)
           .attr("x",-6).attr("y",-6).attr("width",12).attr("height",12)
           .attr("fill",SHAPE_FILL).attr("stroke",SHAPE_STROKE).attr("stroke-width",1.2)
-
         node.select("polygon").transition(t)
-          .attr("points","0,-8 8,0 0,8 -8,0")
-          .attr("fill",SHAPE_FILL).attr("stroke",SHAPE_STROKE).attr("stroke-width",1.2)
-
+          .attr("points","0,-8 8,0 0,8 -8,0").attr("fill",SHAPE_FILL).attr("stroke",SHAPE_STROKE).attr("stroke-width",1.2)
         node.select("text").transition(t)
           .attr("dy","0.32em")
-          .attr("x",d=>d.x<Math.PI===!d.children?12:-12)
+          .attr("x",d=>d.x<Math.PI===!d.children?10:-10)
           .attr("text-anchor",d=>d.x<Math.PI===!d.children?"start":"end")
           .attr("transform",d=>d.x>=Math.PI?"rotate(180)":null)
-          .attr("font-size",d=>d.depth===1?12:9)
-          .attr("font-weight",d=>d.depth<2?"700":"400")
-          .attr("fill",d=>d.depth===1?"#e2e8f0":d.depth===2?"#cbd5e1":"#94a3b8")
-          .text(d=>d.data.name)
-
-        node.filter(d=>d.depth===1)
-          .on("click",function(e,d){
-            grupoSelecionado=grupoSelecionado===d.data.name?null:d.data.name
-            update()
-          })
-
-        node.filter(d=>d.depth===2)
-          .on("mouseover",function(e,d){
-            const lines=[
-              d.data.name,
-              `Setor: ${d.data.sector||"Outros"}`,
-              `Grupo: ${d.parent.data.name}`,
-              `β: ${d.data.beta?.toFixed(3)}`,
-              `p: ${d.data.pvalue?.toFixed(3)}  R²: ${d.data.r2?.toFixed(3)}`,
-              `Ret 30d: ${d.data.median_return_30d?.toFixed(2)}%`,
-              `Vol: ${d.data.volatility?.toFixed(2)}`
-            ]
-            ttLines.forEach((t,i)=>{ t.text(lines[i]||""); t.attr("font-weight",i===0?"700":"400") })
-            tooltip.select("rect")
-              .attr("width",d3.max(lines,l=>l.length)*6.5)
-              .attr("height",16*lines.length+12)
-            const angle=d.x-Math.PI/2
-            tooltip.attr("transform",`translate(${d.y*Math.cos(angle)+16},${d.y*Math.sin(angle)-16})`).attr("display",null)
-          })
-          .on("mouseout",()=>tooltip.attr("display","none"))
+          .attr("font-size",d=>d.depth===1?10:7.5).attr("font-weight",d=>d.depth<2?"700":"400")
+          .attr("fill",d=>d.depth===1?"#e2e8f0":d.depth===2?"#cbd5e1":"#94a3b8").text(d=>d.data.name)
+        node.filter(d=>d.depth===1).on("click",function(e,d){ grupoSelecionado=grupoSelecionado===d.data.name?null:d.data.name; update() })
+        node.filter(d=>d.depth===2).on("mouseover",function(e,d){
+          const lines=[d.data.name,`Setor: ${d.data.sector||"Outros"}`,`Grupo: ${d.parent.data.name}`,`β: ${d.data.beta?.toFixed(3)}`,`p: ${d.data.pvalue?.toFixed(3)}  R²: ${d.data.r2?.toFixed(3)}`,`Ret 30d: ${d.data.median_return_30d?.toFixed(2)}%`,`Vol: ${d.data.volatility?.toFixed(2)}`]
+          ttLines.forEach((t,i)=>{ t.text(lines[i]||""); t.attr("font-weight",i===0?"700":"400") })
+          tooltip.select("rect").attr("width",d3.max(lines,l=>l.length)*6.5).attr("height",16*lines.length+12)
+          const angle=d.x-Math.PI/2
+          tooltip.attr("transform",`translate(${d.y*Math.cos(angle)+16},${d.y*Math.sin(angle)-16})`).attr("display",null)
+        }).on("mouseout",()=>tooltip.attr("display","none"))
       })
   }
-
   update()
   display(svg.node())
 }
@@ -903,7 +869,7 @@ Use o **slider** para navegar entre períodos históricos. Nos períodos de cris
   const positions=new Map(); let selected=null, currentSim=null, currentNodes=[], dragged=false
   const container=document.createElement("div")
   container.style.cssText="padding:4px 0;font-family:sans-serif;"
-  container.innerHTML=`<div style="margin-bottom:8px;"><span style="color:#e5e7eb;font-size:14px;font-weight:700;">Rede de correlação por período</span><br><span style="color:#94a3b8;font-size:11px;">Clique num nó · Arraste · Scroll para zoom</span></div>`
+  container.innerHTML=`<div style="margin-bottom:8px;"><span style="color:#e5e8eb;font-size:15px;font-weight:700;">Rede de correlação por período</span><br><span style="color:#94a3b8;font-size:12px;">Clique num nó · Arraste · Scroll para zoom</span></div>`
 
   const svgEl=d3.create("svg").attr("viewBox",[0,0,W,H])
     .style("display","block").style("max-width","100%").style("height","auto")
@@ -911,7 +877,7 @@ Use o **slider** para navegar entre períodos históricos. Nos períodos de cris
   container.appendChild(svgEl.node())
 
   const ctrl=document.createElement("div"); ctrl.style.cssText="margin-top:8px;"
-  ctrl.innerHTML=`<div style="display:flex;align-items:center;gap:10px;"><span style="color:#94a3b8;font-size:11px;white-space:nowrap;">Período</span><input type="range" min="0" max="${correlationData.length-1}" step="1" value="0" style="flex:1;" id="sr_main"><span id="pn_main" style="color:#e5e7eb;font-size:11px;min-width:240px;text-align:right;"></span></div>`
+  ctrl.innerHTML=`<div style="display:flex;align-items:center;gap:10px;"><span style="color:#94a3b8;font-size:12px;white-space:nowrap;">Período</span><input type="range" min="0" max="${correlationData.length-1}" step="1" value="0" style="flex:1;" id="sr_main"><span id="pn_main" style="color:#e5e7eb;font-size:12px;min-width:240px;text-align:right;"></span></div>`
   container.appendChild(ctrl)
 
   const slider=ctrl.querySelector("#sr_main"), periodName=ctrl.querySelector("#pn_main")
@@ -999,8 +965,9 @@ Use o **slider** para navegar entre períodos históricos. Nos períodos de cris
 
 <hr class="divider"/>
 
-<div class="fade-section" style="text-align:center;color:#475569;font-size:.78rem;padding:2.5rem 0 3rem;">
+<div class="fade-section" style="text-align:center;color:#94a3b8;font-size:.95rem;padding:2.5rem 0 3rem;">
   Análise elaborada com dados do <strong style="color:#64748b;">Yahoo Finance</strong> e do <strong style="color:#64748b;">Banco Central do Brasil</strong> · Período 2018–2025
 </div>
+
 
 
