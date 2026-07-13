@@ -133,10 +133,10 @@ const correlationData = await FileAttachment("data/ibovespa_correlation_graph_qu
 <div class="question">"Como eventos globais e nacionais alteram a estrutura de correlações entre ações brasileiras?"</div>
 
 <div class="hyp-grid">
-  <div class="hyp-card"><div class="label">H1 · Crises</div><p>Em períodos de pânico como a COVID-19, as correlações entre ações disparam — o mercado colapsa em bloco.</p></div>
+  <div class="hyp-card"><div class="label">H1 · Crises</div><p>Em períodos de pânico como a COVID-19, as correlações entre ações disparam, o mercado colapsa em bloco.</p></div>
   <div class="hyp-card"><div class="label">H2 · Recuperação</div><p>Após crises, setores se reorganizam e divergem novamente, restaurando a estrutura de rede.</p></div>
   <div class="hyp-card"><div class="label">H3 · Selic</div><p>Bancos e imobiliárias são mais sensíveis à taxa de juros do que commodities e exportadoras.</p></div>
-  <div class="hyp-card"><div class="label">H4 · Comunidades</div><p>Algoritmos de detecção revelam agrupamentos que refletem — e às vezes transgridem — a classificação setorial.</p></div>
+  <div class="hyp-card"><div class="label">H4 · Comunidades</div><p>Algoritmos de detecção revelam agrupamentos que refletem, e às vezes transgridem, a classificação setorial.</p></div>
 </div>
 </div>
 
@@ -204,7 +204,7 @@ const correlationData = await FileAttachment("data/ibovespa_correlation_graph_qu
 
 ## Um índice, muitos mundos
 
-O Ibovespa não é homogêneo. Ele reúne empresas de setores completamente distintos — cada um com sua própria lógica e relação com o ciclo econômico.
+O Ibovespa não é homogêneo. Ele reúne empresas de setores completamente distintos, cada um com sua própria lógica e relação com o ciclo econômico.
 
 **Financeiro** (Itaú, Bradesco, BTG) responde à taxa de juros e ao crédito. **Commodities** (Vale, Petrobras, Suzano) dançam ao ritmo do dólar e dos preços internacionais. **Consumo** (Ambev, Renner, Magalu) sente o pulso da renda doméstica.
 
@@ -228,7 +228,7 @@ A **taxa Selic** é a taxa básica de juros da economia brasileira, definida pel
 
 Mas nem todos sofrem igual: **bancos** podem se beneficiar do spread; **commodities exportadoras** ficam relativamente protegidas; **imobiliárias e varejistas** são as mais afetadas.
 
-Entre 2020 e 2022, o Brasil viveu um ciclo histórico: a Selic foi de **2% ao ano** (mínima histórica) para **13,75%**. Esse choque reconfigurou completamente quem ganhou e quem perdeu na bolsa.
+Entre 2020 e 2022, o Brasil viveu um ciclo histórico: a Selic foi de **2% ao ano** (mínima histórica) para **mais de 14%**. Esse choque reconfigurou completamente quem ganhou e quem perdeu na bolsa.
 
 <p class="src">Fonte: Banco Central do Brasil (SGS série 432) · COPOM 2018–2025</p>
 
@@ -323,7 +323,7 @@ Entre 2020 e 2022, o Brasil viveu um ciclo histórico: a Selic foi de **2% ao an
 
 ## Séries temporais de retorno acumulado
 
-O ponto de partida é olhar como cada ação se comportou ao longo do tempo. Setores inteiros se movem juntos — bancos sobem e caem em bloco, commodities respondem ao dólar. Isso levanta a pergunta central: quanto dessa co-movimentação é estrutural?
+O ponto de partida é olhar como cada ação se comportou ao longo do tempo. Setores inteiros se movem juntos, bancos sobem e caem em bloco, commodities respondem ao dólar. Isso levanta a pergunta central: quanto dessa co-movimentação é estrutural?
 
 O gráfico inicia mostrando 1 ativo de destaque de cada um destes 5 setores: Basic Materials, Consumer Cyclical, Energy, Financial Services e Industrials. Ao marcar qualquer setor no filtro abaixo, essa visão inicial some e dá lugar aos setores marcados (com todos os seus ativos); "Limpar seleção" traz de volta os 5 iniciais. Clique em uma linha para destacar um ativo específico.
 
@@ -473,9 +473,10 @@ const sectorFilter = Generators.input(sectorInput)
 
 A **correlação média absoluta** da rede sobe dramaticamente em crises. Em 2020 (COVID-19), a correlação entre ativos atingiu níveis históricos: ações de setores completamente diferentes passaram a se mover como se fossem uma só.
 
-Esse fenômeno — chamado de *colapso de correlação* — é a assinatura de um mercado em pânico. A diversificação deixa de funcionar exatamente quando mais se precisa dela.
+Esse fenômeno — chamado de *colapso de correlação*, é a assinatura de um mercado em pânico. A diversificação deixa de funcionar exatamente quando mais se precisa dela.
 
 Use o seletor abaixo para explorar outras métricas da rede: **densidade**, **número de arestas** e **tamanho do maior componente conectado**. Passe o mouse sobre os pontos para ver o valor exato de cada trimestre.
+
 
 <p class="src">Fonte: Yahoo Finance · Janela trimestral · Correlação de Pearson sobre log-retornos</p>
 
@@ -503,7 +504,18 @@ const selectedMetricH1 = view(Inputs.select(
     .style("overflow","visible")
 
   const x = d3.scalePoint().domain(data.map(d=>d.period)).range([m.left,W-m.right]).padding(0.5)
-  const y = d3.scaleLinear().domain(d3.extent(data,d=>d.value)).nice().range([H-m.bottom,m.top])
+
+  const yFloors = { avg_abs_corr: 0.20, density: 0.20, largest_component_share: 0.20, n_edges: 0.00 }
+  const yCeils  = { avg_abs_corr: 1.0,  density: 1.0,  largest_component_share: 1.0,  n_edges: 2500 }
+
+  const dataMin = d3.min(data, d => d.value)
+  const yDomain = [
+    Math.min(yFloors[selectedMetricH1], dataMin),
+    yCeils[selectedMetricH1]
+  ]
+  const y = d3.scaleLinear()
+    .domain(yDomain)
+    .range([H-m.bottom,m.top])
 
   // Gridlines verticais
   svg.selectAll("line.vg").data(data).join("line").attr("class","vg")
@@ -527,9 +539,13 @@ const selectedMetricH1 = view(Inputs.select(
       .attr("dx","-0.5em"))
     .call(g => g.select(".domain").attr("stroke","#334155"))
 
-  // Eixo Y
+ // Eixo Y
+  const yTickFormat = selectedMetricH1 === "n_edges"
+    ? d3.format(",.0f")           // inteiro, sem casas decimais
+    : d3.format(".2f")            // 2 casas pras métricas 0–1
+
   svg.append("g").attr("transform",`translate(${m.left},0)`)
-    .call(d3.axisLeft(y).ticks(6).tickFormat(d3.format(".3f")))
+    .call(d3.axisLeft(y).ticks(6).tickFormat(d => yTickFormat(d).replace(",", ".")))
     .call(g => g.select(".domain").remove())
     .call(g => g.selectAll(".tick text").attr("fill","#94a3b8").style("font-size","11px"))
     .call(g => g.selectAll(".tick line").clone().attr("x2",W-m.left-m.right).attr("stroke","#1e293b"))
@@ -582,12 +598,14 @@ const selectedMetricH1 = view(Inputs.select(
 
 ## A rede se reorganiza após a tempestade
 
-Após crises, a **modularidade** da rede volta a subir — os setores se separam novamente. A NMI (Informação Mútua Normalizada) mede o quanto as comunidades detectadas coincidem com os setores reais da B3.
+Após crises, a **modularidade** da rede volta a subir,os setores se separam novamente. A NMI (Informação Mútua Normalizada) mede o quanto as comunidades detectadas coincidem com os setores reais da B3.
 
 Quando a NMI é alta, o mercado "se comporta como esperado". Quando cai, surgem agrupamentos transversais — empresas de setores distintos que passam a se mover juntas por razões macroeconômicas. Clique nas métricas da legenda para mostrar/ocultar cada série.
 
-<p class="src">Fonte: Yahoo Finance · Algoritmo de Louvain · Janela trimestral</p>
 
+<p class="src">Fonte: Yahoo Finance · Algoritmo de Louvain · Janela trimestral</p>
+<span style="font-size:0.82rem; color:#94a3b8;">Clique em uma clipe a direita para destacar.</span>
+</div>
 </div>
 <div class="viz">
 
@@ -682,9 +700,13 @@ Quando a NMI é alta, o mercado "se comporta como esperado". Quando cai, surgem 
 
 ## Quem ganha e quem perde com os juros?
 
-Regredimos os retornos de cada setor contra a variação da Selic e estimamos um **beta de sensibilidade**. Confirmando H3: o setor financeiro lidera em sensibilidade positiva, enquanto consumo discricionário e tecnologia apresentam beta negativo — exatamente o padrão esperado.
+Regredimos os retornos de cada setor contra a variação da Selic e estimamos um **beta de sensibilidade**. Nenhum setor analisado tem beta positivo relevante no período — todos sofrem com alta de juros, mas em graus muito diferentes. **Consumer Cyclical** (β=-5.13) e **Basic Materials** (β=-4.62) são os mais penalizados; **Financial Services** (β=-2.90), embora ainda negativo, é bem menos sensível — e **Consumer Defensive** é o único setor com beta levemente positivo (β=0.26), funcionando quase como proteção.
 
-Beta positivo = o setor tende a se beneficiar quando a Selic sobe. Beta negativo = o setor sofre com alta de juros. Clique em uma barra para destacar.
+<div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; padding:1.1rem 1.4rem; margin:1.2rem 0; font-size:0.98rem; line-height:1.7; color:#ffffff;">
+<strong style="color:#60a5fa;">Beta positivo</strong> = o setor tende a se beneficiar quando a Selic sobe.<br>
+<strong style="color:#f87171;">Beta negativo</strong> = o setor sofre com alta de juros.<br>
+<span style="font-size:0.82rem; color:#94a3b8;">Clique em uma barra para destacar.</span>
+</div>
 
 <p class="src">Fonte: Yahoo Finance + Banco Central · COPOM 2018–2025</p>
 
@@ -754,6 +776,14 @@ A visão agregada por setor esconde diferenças importantes. A árvore radial de
 
 Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos sensível) para filtrar. Use os arcos externos para navegar entre anos e ver como a sensibilidade evolui a cada ciclo do COPOM.
 
+<div style="background:#0f172a; border:1px solid #1e293b; border-radius:10px; padding:1.1rem 1.4rem; margin:1.2rem 0; font-size:0.98rem; line-height:1.7; color:#ffffff;">
+As três faixas são <strong>tercis do beta com sinal</strong> (não do valor absoluto), calculados sobre a distribuição completa de todos os tickers × anos:<br>
+<strong style="color:#f87171;">♦ Mais sensível</strong>: β ≤ -9,72 (queda mais forte com alta de juros)<br>
+<strong style="color:#e2e8f0;">▪ Intermediário</strong>: -9,40 < β ≤ -0,04<br>
+<strong style="color:#60a5fa;">● Menos sensível</strong>: β > -0,04 (neutro ou beneficiado)<br>
+<span style="font-size:0.82rem; color:#94a3b8;">Tercis calculados sobre o beta com sinal, não sobre |β|.</span>
+</div>
+
 <p class="src">Fonte: Yahoo Finance + COPOM · Beta em janela de 30 dias pós-decisão</p>
 
 </div>
@@ -764,7 +794,7 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
   const anos = [...new Set(h3TickerYear.map(d=>+d.year))].sort(d3.ascending)
   let anoAtual = anos.includes(2022) ? 2022 : anos[0], grupoSelecionado = null
   const W=700, H=700, radioArvore=260, radioArco=345, radioArcoIn=315
-  const DURACAO = 1200
+  const DURACAO = 2300
   const GRUPOS = ["Mais sensível","Intermediário","Menos sensível"]
   const GRUPO_SHAPE = {"Mais sensível":"diamond","Intermediário":"rect","Menos sensível":"circle"}
   const SHAPE_FILL="#334155", SHAPE_STROKE="#cbd5e1"
@@ -789,7 +819,11 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
 
   const svg = d3.create("svg").attr("viewBox",[-W/2,-H/2,W,H])
     .style("font-family","sans-serif")
-    .style("user-select","none").style("max-width","100%")
+    .style("user-select","none")
+    .style("width","600px")
+    .style("max-width","100%")
+    .style("display","block")
+    .style("margin","0 auto")
 
   const gYears=svg.append("g"), gLinks=svg.append("g"), gNodes=svg.append("g")
   const segW=(2*Math.PI)/anos.length
@@ -817,8 +851,6 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
     const root = d3.hierarchy(buildHierarchy(dados)).sum(d=>d.value||0).sort((a,b)=>b.value-a.value)
     d3.cluster().size([2*Math.PI,radioArvore])(root)
     const t = svg.transition().duration(DURACAO).ease(d3.easeCubicInOut)
-    const maxBeta = d3.max(dados,d=>Math.abs(+d.beta_selic_30d))||1
-    const rScale = d3.scaleSqrt().domain([0,maxBeta]).range([2,9])
 
     gYears.selectAll("path.arco").transition(t)
       .attr("fill",d=>d===anoAtual?"#475569":"#334155").attr("stroke",d=>d===anoAtual?"#e2e8f0":"#0d1117")
@@ -852,7 +884,7 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
       .style("cursor",d=>d.depth>=1?"pointer":"default")
       .call(node=>{
         node.select("circle").transition(t)
-          .attr("r",d=>d.depth===0?5:d.depth===2?rScale(Math.abs(d.data.beta)):6)
+          .attr("r",d=>d.depth===0?5:6)
           .attr("fill",d=>d.depth===2?sectorColor(d.data.sector):d.depth===0?"#94a3b8":SHAPE_FILL)
           .attr("stroke",d=>d.depth===2?d3.color(sectorColor(d.data.sector)).darker(0.8).toString():SHAPE_STROKE)
           .attr("stroke-width",d=>d.depth===1?1.8:0.8)
@@ -868,15 +900,21 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
           .attr("text-anchor",d=>d.x<Math.PI===!d.children?"start":"end")
           .attr("transform",d=>d.x>=Math.PI?"rotate(180)":null)
           .attr("font-size",d=>d.depth===1?10:7.5).attr("font-weight",d=>d.depth<2?"700":"400")
-          .attr("fill",d=>d.depth===1?"#e2e8f0":d.depth===2?"#cbd5e1":"#94a3b8").text(d=>d.data.name)
+          .attr("fill",d=>d.depth===1?"#e2e8f0":d.depth===2?"#cbd5e1":"#94a3b8")
+          .attr("opacity",1)
+          .text(d=>d.data.name)
         node.filter(d=>d.depth===1).on("click",function(e,d){ grupoSelecionado=grupoSelecionado===d.data.name?null:d.data.name; update() })
         node.filter(d=>d.depth===2).on("mouseover",function(e,d){
+          d3.select(this).select("text").attr("opacity",1).raise()
           const lines=[d.data.name,`Setor: ${d.data.sector||"Outros"}`,`Grupo: ${d.parent.data.name}`,`β: ${d.data.beta?.toFixed(3)}`,`p: ${d.data.pvalue?.toFixed(3)}  R²: ${d.data.r2?.toFixed(3)}`,`Ret 30d: ${d.data.median_return_30d?.toFixed(2)}%`,`Vol: ${d.data.volatility?.toFixed(2)}`]
           ttLines.forEach((t,i)=>{ t.text(lines[i]||""); t.attr("font-weight",i===0?"700":"400") })
           tooltip.select("rect").attr("width",d3.max(lines,l=>l.length)*6.5).attr("height",16*lines.length+12)
           const angle=d.x-Math.PI/2
           tooltip.attr("transform",`translate(${d.y*Math.cos(angle)+16},${d.y*Math.sin(angle)-16})`).attr("display",null)
-        }).on("mouseout",()=>tooltip.attr("display","none"))
+        }).on("mouseout",function(e,d){
+          d3.select(this).select("text").attr("opacity",0)
+          tooltip.attr("display","none")
+        })
       })
   }
   update()
@@ -888,13 +926,6 @@ Clique nos grupos internos (♦ Mais sensível / ▪ Intermediário / ● Menos 
 </div>
 
 <hr class="divider"/>
-
-<!-- ── H4 — REDE DE CORRELAÇÃO ── -->
-
-<div class="story-stack fade-section">
-<div class="narr">
-
-<span class="chip">H4 · Visão completa</span>
 
 ## A rede que conecta tudo
 
